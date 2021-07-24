@@ -1,0 +1,13 @@
+d1 $ jux' [id, rev, (# speed 2)] $ arp "<pinkyup down thumbup>" $ n "c'maj'4 _ e'min _ d'min _"
+  # sound "koy"
+  # sustain "<0.3 2>"
+  # delay "<2 0.5 1 ~>"
+  # room 0.3 # sz 0.9
+  # vowel "a e i o u"
+
+d2 $ jux' [id, rev, (# speed 2)] $ every 2 ("<0.25 0.125 0.5>" <~) $ slow 3 $ sound "Bass_Drums:5*2 [[~ lt] Snare_Drums:3] lt:1 [Hats:1 mt*2]"
+  -- # squiz "<1 2.5 2>"
+  # room (slow 4 $ range 0 0.2 saw)
+  # sz 0.5
+  
+d2 silence
