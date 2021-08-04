@@ -1,0 +1,8 @@
+-- 2021.08.03-midi
+-- d1 $ n "c3(3,8)" # s "midi" # midichan 2
+
+-- d2 $ n "[c4(2,4), c5]" # s "midi" # midichan 2
+
+d3 $ n "0 3 [4 7] 9" # s "midi" # midichan 2
+
+-- d4 $ ccv (run 100) # ccn 1 # s "midi" # midichan 2
