@@ -2,11 +2,11 @@ d1
   $ jux rev
   $ striate 4
   $ slow "<1 2 3 4>"
-  $ n "3"
-  +| s "<roll_door_2 race_car>"
+  $ n (run 10)
+  +| s "<roll_door_2 race_car Andreis_Bell>" -- change samples
   # cut "3 5 2 7"
-  # delay 1 # delayfb 0.9
-  # squiz sine
+  # delay 1 # delayfb sine
+  # squiz (sine * 2)
 
 d1 silence
 
@@ -17,16 +17,21 @@ d2 $ fastGap ("2 1" + (run 8)) $ n "0 2 1 [3 4 5 4]/2" # s "Bass_Drums <Hats Sna
 d2 silence
 
 --
-d1 $ fastcat [s "bd sd", s "hh Bass_Drums", s "Hat_Loops"]
+d3 $ slowcat [s "sd(3,8)", s "hh(3,8) Bass_Drops:4", s "Hat_Loops"]
 
 d4 $ fastGap "<2 4 ~ _> 1"
   -- $ iter 4
   $ s "Bass_Drums" +| n (run 8)
   # amp 0.4
+  -- # distort "0.2 1 ~ _"
   #orbit 1
 
-d2 $ slow "<2 4>" $ iter 8 $ s "Hats" +| n (run 4)
+d2
+  $ jux rev
+  $ slow "<2 4>" $ iter 8 $ s "Pitched_Timpanies" +| n (run 4)
   # delay (slow 3 sine)
   # delayt 0.9
   # delayfb 0.9
   # orbit 2
+
+d5 $ s "Bass_Drums:4*2"
