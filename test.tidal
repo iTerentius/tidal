@@ -1,32 +1,37 @@
-d1
-  $ jux rev
-  $ striate 4
-  $ slow "<1 2 3 4>"
-  $ n "3"
-  +| s "<roll_door_2 race_car>"
-  # cut "3 5 2 7"
-  # delay 1 # delayfb 0.9
-  # squiz sine
+setI "cc1" $ (cI 1 "21")
 
-d1 silence
+d1 $ slow 2  $ n "^cc1" #  s "supersaw supersquare"
 
-set
+d1 $ sound "bd" # amp (cF 1 "21")
 
-d2 $ fastGap ("2 1" + (run 8)) $ n "0 2 1 [3 4 5 4]/2" # s "Bass_Drums <Hats Snare_Drums>!2" # crush "<8 2>" #delay 50 # orbit 3 #amp 0.1
+-- d3 $ n (run 8) # s "midi"
 
-d2 silence
+d1 $ sound "amencutup" + n (run (segment 1 $ range 1 16 $ cN 1 "48" ))
 
---
-d1 $ fastcat [s "bd sd", s "hh Bass_Drums", s "Hat_Loops"]
+d2 $ slow (cR 1 "21") $ sound "amencutup" # room (cF 10 "22") # sz (cF 1 "23")
 
-d4 $ fastGap "<2 4 ~ _> 1"
-  -- $ iter 4
-  $ s "Bass_Drums" +| n (run 8)
-  # amp 0.4
-  #orbit 1
 
-d2 $ slow "<2 4>" $ iter 8 $ s "Hats" +| n (run 4)
-  # delay (slow 3 sine)
-  # delayt 0.9
-  # delayfb 0.9
-  # orbit 2
+d1 $ stack [
+  sound "bd bd*2",
+  sound "hh*2 [sn cp] cp future*4",
+  sound "arpy" +| n "0 .. 15"
+]
+
+
+d1 $ whenmod 5 3 (striate 3) $ stack [
+  sound "bd bd*2",
+  sound "hh*2 [sn cp] cp future*4",
+  sound "arpy" +| n "0 .. 15"
+] # speed "[[1 0.8], [1.5 2]*2]/3"
+
+d1 $ superimpose (fast 4) $ sound "bd sn [cp ht] hh"
+
+d1 $ layer [rev, fast 2] $ sound "arpy [~ arpy:4]"
+
+d1 $ s (steps [("hc","x  x x  x x  x"),("bd", "xx xx")])
+
+d1 $ jux (striate 4) $ s (steps [("bd", "x x xx x")]) # n (run 8)
+  # bandf (range 0 1200 $ (sine))
+  # bandq (1-sine)
+  -- # hpq (cF 1 "22")
+  -- # djf sine
