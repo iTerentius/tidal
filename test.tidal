@@ -32,6 +32,71 @@ d1 $ s (steps [("hc","x  x x  x x  x"),("bd", "xx xx")])
 
 d1 $ jux (striate 4) $ s (steps [("bd", "x x xx x")]) # n (run 8)
   # bandf (range 0 1200 $ (sine))
-  # bandq (1-sine)
+  # bandq (1-(sine * rand))
   -- # hpq (cF 1 "22")
-  -- # djf sine
+  # djf sine
+  # orbit 2
+
+d2 $
+
+
+let pats =
+      [
+        ("a", stack [n "c4 c5 g4 f4 f5 g4 e5 g4" # s "superpiano" # gain "0.7",
+                     n "[c3,g4,c4]" # s "superpiano"# gain "0.7"
+                    ]
+        ),
+        ("b", stack [n "d4 c5 g4 f4 f5 g4 e5 g4" # s "superpiano" # gain "0.7",
+                     n "[d3,a4,d4]" # s "superpiano"# gain "0.7"
+                    ]
+        ),
+        ("c", stack [n "f4 c5 g4 f4 f5 g4 e5 g4" # s "superpiano" # gain "0.7",
+                     n "[f4,c5,f4]" # s "superpiano"# gain "0.7"
+                    ]
+        ),
+        ("d", s "hoarder:1")
+      ]
+    fx = [("reverb", (# (room 0.8 # sz 0.99 # orbit 1))),
+          ("faster", fast 2),
+          ("slower", slow 4)
+          ]
+in
+d1 $ ur 12 "a b:reverb c:faster d:slower" pats fx
+
+
+let pats = [("drums", s "drum cp*2"),
+            ("melody", s "arpy:2 arpy:3 arpy:5"),
+            ("craziness", s "cp:4*8" # speed ( sine + 0.5))
+           ]
+    fx = [("higher", (# speed 2))]
+in
+d1 $ ur 8 "[drums, melody] [drums,craziness,melody] melody:higher" pats fx
+
+d1 $ qtrigger 1 $ seqPLoop [
+  (0, 12, sound "bd bd*2"),
+  (4, 12, sound "hh*2 [sn cp] cp future*4"),
+  (8, 12, sound (samples "arpy*8" (run 16))),
+]
+
+d1 $ fast 2 $ sound "bd sd"
+
+anticipateIn 2 2 $ fast 4 $ sound "hh*2" *| gain "0.9 0.6"
+
+d2 silence
+
+d1 $ sound "bd(3,8)"
+
+clutch 1 $ sound "[hh*4, odx(3,8)]"
+
+d1 $ sound "arpy*16" # cutoff 100
+
+interpolate 1 $ sound "arpy*16" # cutoff 16000
+
+d1 $ sound "Bass_Drums*16" # speed (range 1 4 $ sine * perlin) # cut 2
+
+
+d1 $ jux rev $ fast 2 $ n (run 100) # s "<AKWF_0001 AKWF_0002 AKWF_0003 AKWF_0004>"
+
+d1 $ loopAt 4 $ slow 2 $ s "PercLoops" # n "0"
+
+d1 $ loopAt 1 $ n (run 16) # s "AKWF_0001" # speed (sine * 2) 

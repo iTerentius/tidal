@@ -38,12 +38,13 @@ d6
   $
   -- n (run 8) #
    s (steps [("hc","x  x x  xx x  x"),("bd", "xx xx"), ("Bass_Drums", "x")])
-  # lpf (range 10 2000 (cF 1 "41") * sine)
-  # lpq (range 10 2000 (cF 1 "42") * sine)
+  -- # lpf (range 10 2000 (cF 1 "41") * sine)
+  -- # lpq (range 10 2000 (cF 1 "42") * sine)
   # amp (range 0 1 (cF 1 "43"))
 
 d1 $ (striate 4) $ slow 2 $ s (steps [("Hats","x  x x  x x  x"),("Bass_Drums", "xx xx")])
-  # bpf (range 0 1200 $ (cF 1 "21"))
+  -- # bpf (range 0 1200 $ (cF 1 "21"))
+  # bpf (range 0 1200 $ rand)
   -- # bpf (range 0 1200 $ (slow 4 square) + sine * 2)
   # bpq (range 0 1200 $ ( cF 1 "22"))
   # room (cF 1 "23")
@@ -58,14 +59,20 @@ d2 $ slow 4 $ n (run 8) # s "{Bass_Drops _ _}"
 d5 $ slow 2 $ s "as1" # n (run 8) --2021.02.29-ndefs.scd
 
 
-d5 $ jux rev $ slow 8 $ striate (run 16) $ n (run 16)
-    +| s "hoarder"
+d5
+    $ jux rev
+    $ slow ("1 .. 4" * 4)
+    -- $ loopAt 16
+    $ rev
+    $ striateBy 8 (run 16)
+    $ n (irand 32)
+    +| s "<roll_door_2 Cat-Water>"
     -- # begin "<0.25 0.5> 0 0"
     # amp 0.8
     # delay (cF 1 "43")
     # delayfb (cF 1 "44")
     # room 0.5
-    # crush (sine * 16 * (cF 1 "44"))
+    -- # crush (sine * 16 * (cF 1 "44"))
     -- # pan sine
 
 d5 silence
