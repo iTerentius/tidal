@@ -41,8 +41,9 @@ d6
   -- # lpf (range 10 2000 (cF 1 "41") * sine)
   -- # lpq (range 10 2000 (cF 1 "42") * sine)
   # amp (range 0 1 (cF 1 "43"))
+  # gain 0.6
 
-d1 $ (striate 4) $ slow 2 $ s (steps [("Hats","x  x x  x x  x"),("Bass_Drums", "xx xx")])
+d1 $ (striate 4) $ slow 1 $ s (steps [("Hats","x  x x  x x  x"),("Bass_Drums", "xx xx")])
   -- # bpf (range 0 1200 $ (cF 1 "21"))
   # bpf (range 0 1200 $ rand)
   -- # bpf (range 0 1200 $ (slow 4 square) + sine * 2)
@@ -52,7 +53,7 @@ d1 $ (striate 4) $ slow 2 $ s (steps [("Hats","x  x x  x x  x"),("Bass_Drums", "
   -- # hpq (1-(cF 1 "22"))
   -- # djf sine
   # crush ( range 0 10 (cF 1 "25"))
-  # amp 0.2
+  # gain 0.5
 
 d2 $ slow 4 $ n (run 8) # s "{Bass_Drops _ _}"
 
