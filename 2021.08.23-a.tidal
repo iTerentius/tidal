@@ -2,8 +2,8 @@ d1 $ every "<3 1>" (0.25 <~) $ every 3 (fast 2) $ sound "[Bass_Drums(3,8)@3, Cat
   # n (run "<3 10 15?>")
   # speed (range 1 2 $ sine * perlin)
   # hpf 50
-  # crush (range 4 10 sine)
-  -- # gain 0.9
+  -- # crush (range 4 10 sine)
+  # gain 0.9
 
 
  p "perc" $ loopAt 2 $ slow 4 $ s "PercLoops" # n "0" # orbit 1
@@ -31,6 +31,8 @@ d4 $ loopAt 4 $ slow 10 $ striate 16 $ n (run 500) # s "Cat-Water" # hpf 80 # ga
 d4 silence
 
 d5 $ jux rev $ slow "<4 8 16>" $ n "[0, 3, 5@] [3, 7] [-7, 4]" # s "superfm" # voice (sine + 0.5) # gain 0.8
+
+d5 $ n "0 4 7 ~" # s "t425"
 
 d5 silence
 
