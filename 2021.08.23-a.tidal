@@ -32,7 +32,7 @@ d4 silence
 
 d5 $ jux rev $ slow "<4 8 16>" $ n "[0, 3, 5@] [3, 7] [-7, 4]" # s "superfm" # voice (sine + 0.5) # gain 0.8
 
-d5 $ n "0 4 7 ~" # s "t425"
+d5 $ n "0 4 7 ~" # s "bass" # amp 1
 
 d5 silence
 
