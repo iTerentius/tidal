@@ -1,0 +1,19 @@
+d1
+  $ mask "<[t f] f t>"
+  $ jux rev
+  $ striate "<4 8>"
+  $ s "[Cat-Water*8, AKWF_birds*16]"
+  # n (irand 200)
+  # speed (slow 4 $ perlin + 0.5)
+  -- # room 0.6 # sz 0.8
+  -- # squiz sine + 0.5
+  # gain (cF 0.5 "77")
+
+d1 silence
+
+d2 $ fast 1
+  $ s "[Bass_Drums:3*4, Hats:1(5,8)]"
+  -- # crush 4
+  # gain (cF 0.5 "78")
+
+d2 silence
