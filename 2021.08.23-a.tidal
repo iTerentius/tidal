@@ -66,16 +66,3 @@ d5 $ qtrigger 1
   # legato 4
   # amp 0.8
   # gain (cF 0.5 "81")
-
-d7 $ s "[readorb:0, readorb:2, readorb:1, readorb:4, readorb:7]"
-  # room (cF 0.5 "13") #sz (cF 0.5 "29")
-  # gain (cF 0.5 "82")
-
-d7 silence
-
-d8 $ jux rev $ striate 16 $ slow 4 $ s "[readorb:0, readorb:1, readorb:3, readorb:2]"
-  # crush (cF 1 "19")
-  # squiz (cF 20 "35")
-  # gain (cF 0.5 "83")
-
-d8 silence
