@@ -1,0 +1,14 @@
+d1
+  $ chunk 4 (fastGap "<2 4 1>")
+  $ s "[Bass_Drums(3,8), Snare_Drums:2*2, Hats*4]"
+  # n (run 12)
+  # amp (range 0.5 1 sine)
+  # room 0.5 # sz 0.6
+  # gain 0.8
+
+d2
+  $ jux rev $ striate 32 $ n "0 2 4" # s "<ade ab>" # speed sine # gain 0.8
+
+d3 $ slow 2 $ n "[e4 a4 d3 e3]" # s "bass8" # gain 1.2
+  -- # legato 2
+  # crush (sine * 2)
