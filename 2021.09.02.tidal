@@ -1,14 +1,44 @@
 d1
-  $ chunk 4 (fastGap "<2 4 1>")
+  $ chunk 4 (iter "<2 4 1>")
+  -- $ iter 16
   $ s "[Bass_Drums(3,8), Snare_Drums:2*2, Hats*4]"
-  # n (run 12)
+  # n (run 20)
   # amp (range 0.5 1 sine)
-  # room 0.5 # sz 0.6
-  # gain 0.8
+  -- # room 0.3 # sz 0.2
+  -- # crush ((saw * sine) + 4)
+  # gain (cF 0.8 "77")
+
+ d1 silence
 
 d2
-  $ jux rev $ striate 32 $ n "0 2 4" # s "<ade ab>" # speed sine # gain 0.8
+  $ jux rev
+  $ iter 4
+  $ striate (run 8)
+  $ n "0 2 4"
+  # s "<ade ab>"
+  # speed sine
+  # gain (cF 0.7 "78")
 
-d3 $ slow 2 $ n "[e4 a4 d3 e3]" # s "bass8" # gain 1.2
-  -- # legato 2
-  # crush (sine * 2)
+d2 silence
+
+d3
+    $ slow 2
+    $ n "[e4 a4 d3 e5]"
+    # s "bass8"
+    # amp 1
+    # gain 0.7
+    # legato 2
+    -- # crush 4
+
+d3 silence
+
+d4
+    $ off 0.25
+    -- $ mask "t(3,8)"
+    $ jux rev $ chunk 2 (striate 16)
+    $ n (run 10)
+    # s "[hoarder, Cat-Water]"
+    # gain 0.7
+    # legato 2
+
+d4 silence
