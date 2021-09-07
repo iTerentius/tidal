@@ -1,14 +1,14 @@
 
 
-d17 $ s "[readorb:0, readorb:2, readorb:1, readorb:4]"
+d7 $ s "[readorb:0, readorb:2, readorb:1, readorb:4]"
   # room (cF 0.5 "13") #sz (cF 0.5 "29")
   # gain (cF 0.5 "82")
 
-d4 silence
+d7 silence
 
-d5 $ jux rev $ s "[readorb:0, readorb:2, readorb:3]"
+d8 $ jux rev $ s "[readorb:0, readorb:2, readorb:3]"
   # crush (cF 1 "19")
   # squiz (cF 20 "35")
   # gain (cF 0.5 "83")
 
-d5 silence
+d8 silence

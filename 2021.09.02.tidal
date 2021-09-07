@@ -1,13 +1,15 @@
+setcps (130/60/4)
+
 d1
   $ chunk 16 (iter "<2 4 [8 2]>")
   $ iter 2
   $ n (run 20)
-  +| s "[Bass_Drums(3,6), Snare_Drums:2*2, Hats*4]"
-  -- # n (run 20)
+  +| s "[<hoarder:2(3,8), Bass_Drums(3,8)>, Snare_Drums:2*2, Hats*4]"
+  # n (run 20)
   # amp (range 0.5 1 sine)
-  # legato 2
+  # legato 3
   -- # room 0.3 # sz 0.2
-  -- # crush ((square) + 2)
+  |+ crush (sine * "<40 2 4>")
   # gain (cF 0.8 "77")
 
  d1 silence
@@ -30,7 +32,7 @@ d3
     # amp 1
     # gain (cF 0.7 "79")
     # legato 2
-    -- # crush 4
+    # crush 4
 
 d3 silence
 
@@ -38,7 +40,7 @@ d4
     -- $ off 0.25
     -- $ mask "t(3,8)"
     -- $ jux rev
-    $ chunk 2 rev
+    -- $ chunk 2 rev
     $ striate (cF 4 "16")
     $ n (run 10)
     # s "[hoarder, Cat-Water]"
