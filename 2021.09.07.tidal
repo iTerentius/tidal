@@ -1,0 +1,78 @@
+setcps (130/60/4)
+
+d1
+  -- $ qtrigger 1
+  $ jux rev
+  $ chunk 16 (iter "<2 4 [8 2]>")
+  -- $ iter 2
+  $ off 0.25 (chunk 8 (# distort "<2 4 [8 2]>"))
+  -- $ n (run 20)
+  -- $ s "[<hoarder:2(3,8), Bass_Drums(3,8)>, Snare_Drums:2*2, Hats*4]"
+  -- # n (run 20)
+  -- (# amp (range 0.5 1 sine))
+  -- $ iter 32
+  -- $ off 0.125 (# crush "<4 10>")
+  -- # n (run 32)
+  $ s "[<Andreis_Bell Bass_Drums:4(3,8)> Snare_Drums:5, Hats:4*4]"
+  -- +| s "[< ~ Bass_Drums(3,8)> Snare_Drums:2, Hats*4]"
+  # n (run 48)
+  -- # amp (range 0.7 0.5 square)
+  -- # begin isaw
+  -- # end (square * sine)
+  # legato 1
+  -- # cut 1
+  -- # room 0.3 # sz 0.2
+  # crush (sine * "<40 2 4 0>")
+  # gain (cF 0.8 "77")
+
+ d1 silence
+
+ d2
+  -- $ jux rev
+  $ chunk 2 (# crush 4)
+  $ arp "<thumbdown converge diverge>"
+  $ n "<a4'min e'min7 g5'maj'5 d5'maj'4>"
+  # s "juno" # gain 0.7
+  -- # distort 4
+  -- # cut 1
+
+d2
+  $ jux rev
+  $ iter 4
+  $ striate (run 8)
+  $ n "0 2 4"
+  # s "<ade ab>"
+  # speed sine
+  # gain (cF 0.7 "78")
+  -- # djf 4
+
+d2 silence
+
+d3
+    -- $ qtrigger 1 $ mask "<t f>"
+    $ slow 2
+    $ n "[a3 <e4 d3> a5 <a4 a5>]"
+    # s "bass8"
+    # amp 1
+    # gain (cF 0.65 "79")
+    # legato "1 2"
+    -- # crush 4
+
+d3 silence
+
+d4
+    -- $ off 0.25
+    $ mask "t(3,8)"
+    $ chunk 16 rev
+    $ jux rev
+    $ striate 16
+    -- $ n (run 100)
+    $ s "[<Cat-Water*16, AKWF_0005>]"
+    # n (irand 400)
+    # speed (sine * 2)
+    # crush "{2 4 8}"
+    # gain (cF 0.7 "80")
+    # room 0.8 # sz 0.5
+    # legato 2
+
+d4 silence
