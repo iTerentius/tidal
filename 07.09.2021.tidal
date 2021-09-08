@@ -91,7 +91,7 @@ in
 d1 $ ur 8 "[drums, melody] [drums,craziness,melody] melody:higher" pats fx
 
 
-d1 $ seqP [
+d1 $ qtrigger 1 $ seqP [
   (0, 12, sound "bd bd*2"),
   (4, 12, sound "hh*2 [sn cp] cp future*4"),
   (8, 12, sound (samples "arpy*8" (run 16)))
