@@ -4,10 +4,10 @@ d1
   -- $ qtrigger 1
   -- $ jux rev
   $ chunk 16 (iter "<2 4 [8 2]>")
-  -- $ iter 2
-  -- $ off 0.25 (chunk 8 (# ring "<2 4 [8 2]>"))
+  $ iter 2
+  $ off 0.25 (chunk 8 (# ring "<2 4 [8 2]>"))
   -- $ n (run 20)
-  $ s "[<race_car:2(3,8), Bass_Drums(3,8)>, Snare_Drums:2*2, Hats*2]"
+  $ s "[<race_car:2(3,8), Bass_Drums(3,8)>, <Snare_Drums:2*2>, Hats*2]"
   # n (irand 20)
   -- # note ("0 .. 7")
   -- (# amp (range 0.5 1 sine))
@@ -19,7 +19,7 @@ d1
   -- # n (run 48)
   -- # amp (range 0.7 0.5 saw)
   -- # begin isaw
-  # end (saw * cosine)
+  -- # end (saw * cosine)
   # legato 3
   -- # cut 1
   -- # room 0.3 # sz 0.2
@@ -34,7 +34,7 @@ d1
   $ chunk 2 (# crush 4)
   $ arp "<thumbdown converge diverge>"
   $ n "<e3'min e4'min7 g5'maj'5 d5'min'4>"
-  # s "juno ade de" # gain 0.7
+  # s "juno ade" # gain 0.7
   # legato 2
   -- # distort 4
   -- # cut 1
@@ -81,3 +81,5 @@ d4
 d4 silence
 
 d5 $ "808" # note "0 .. 77" # crush sine
+
+hush

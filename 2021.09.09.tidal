@@ -1,0 +1,16 @@
+d1
+  $ every 3 (rev)
+  $ chop 8
+  $ slow 2
+  $ s "[Hat_Loops, Bass_Drums]"
+  -- # crush 4
+  # crush (sine * 4)
+
+d1 silence
+
+d2
+  $ chop 16
+  $ iter 4
+  $ s "[Bass_Drops ~, Bass_Drums]"
+  # n (irand 30)
+  # speed 4
