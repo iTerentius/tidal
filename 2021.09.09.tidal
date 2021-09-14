@@ -1,16 +1,40 @@
 d1
-  $ every 3 (rev)
-  $ chop 8
-  $ slow 2
-  $ s "[Hat_Loops, Bass_Drums]"
+  -- $ mask "f(3,8)"
+  $ every 3 (# crush 4)
+  $ chunk 8 (iter 16)
+  -- $ slow 2
+  $ off 2 (# speed 2)
+  -- $ note "0 .. 7"
+  $ s "[AKWF_0001:3(3,8), AKWF_linear@4, Hats(3,8)]"
+  -- # n "0 .. 7"
+  +| n (irand 30)
+  # legato "<2 4>"
   -- # crush 4
-  # crush (sine * 4)
+  -- # crush (range 4 15 square)
+  -- # gain 0.9
+
 
 d1 silence
 
 d2
-  $ chop 16
-  $ iter 4
-  $ s "[Bass_Drops ~, Bass_Drums]"
-  # n (irand 30)
+  $ mask "f(3,7)"
+  $ every 3 (chop 16)
+  $ every 4 (jux rev)
+  $ s "[Hats*4(3,8), Bass_Drums(3,8)]"
+  # n (irand 100)
   # speed 4
+
+d2 silence
+
+d3
+  $ chop 4
+  $ every 3 (chunk 4 (jux rev))
+  $ every 4 (slow "<2 4>")
+  $ s "[Andreis_Bell hoarder:2/8]"
+  -- |+ note ("0 3 4 6")
+  # legato 2
+
+d4
+  $ n (irand 10)
+  +| s "[Bass_Drums, Hats(5, 8)]"
+  # n (irand 10)
