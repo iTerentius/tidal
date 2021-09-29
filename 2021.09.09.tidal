@@ -13,7 +13,6 @@ d1
   -- # crush (range 4 15 square)
   -- # gain 0.9
 
-
 d1 silence
 
 d2
@@ -30,11 +29,13 @@ d3
   $ chop 4
   $ every 3 (chunk 4 (jux rev))
   $ every 4 (slow "<2 4>")
-  $ s "[Andreis_Bell hoarder:2/8]"
-  -- |+ note ("0 3 4 6")
+  $ s "[Andreis_Bell hoarder:4/8]"
+ |+ n ("0 3 4 6")
   # legato 2
 
 d4
   $ n (irand 10)
   +| s "[Bass_Drums, Hats(5, 8)]"
   # n (irand 10)
+
+hush
