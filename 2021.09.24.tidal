@@ -17,14 +17,14 @@ d2
 d2 silence
 
 d6
-  $ mask "<f(3,8), t(2,8)>"
+  -- $ mask "<f(3,8), t(2,8)>"
   $ iter 8
   $ off 2 (jux (chop 32))
   $ s "bass8"
-  -- # n (scale "minPent")
+  # n (scale "minPent")
   +| note "0 .. 12"
   # crush (sine * 5)
-  # gain 1
+  # gain 0.7
 
 hush
 
