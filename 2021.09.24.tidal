@@ -4,7 +4,7 @@ d1
   $ every 5 (chop 32)
   $ "[Bass_Drops*4, sd(3,8), ho*4?0.8 hc*4]"
   # legato 2
-  -- # bpf (range 100 2000 sine) # bpq (square * sine)
+  # bpf (range 100 2000 sine) # bpq (square * sine)
   -- # crush (sine * 150)
 
 d1 silence
@@ -17,12 +17,13 @@ d2
 d2 silence
 
 d6
-  $ n (scale "minPent" (run 5)) 
-  # s "bass8"
-  -- # scale "minPent"
-  -- # note (run 12)*2
-  -- # crush (sine * square)
-  # gain 1.5
+  -- $ mask "<f(3,8), t(2,8)>"
+  $ off 2 (jux (chop 32))
+  $ s "bass8"
+  -- # n (scale "minPent")
+  +| note "0 .. 12"
+  # crush (sine * 5)
+  # gain 1
 
 hush
 

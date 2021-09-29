@@ -39,7 +39,7 @@ d1
   $ n "<e3'min e4'min7 g5'maj'5 d5'min'4>"
   # s "juno ade" # gain 0.7
   # legato 2
-  -- # distort 4
+  # distort 4
   -- # cut 1
 
 d2
@@ -86,6 +86,6 @@ d4 silence
 
 d5 $ "808" # note "0 .. 77" # crush sine
 
-d5 silence
+-- d5 silence
 
 hush
