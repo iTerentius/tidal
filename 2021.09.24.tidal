@@ -1,11 +1,12 @@
 d1
   -- $ every 2 (jux rev)
-  $ mask "t f(3,8)"
-  $ every 5 (chop 32)
-  $ "[Bass_Drops*4, sd(3,8), ho*4?0.8 hc*4]"
-  # legato 2
-  # bpf (range 100 2000 sine) # bpq (square * sine)
-  -- # crush (sine * 150)
+  $ mask "[t, f(5,8)]"
+  -- $ every 5 (chop 32)
+  $ "[Bass_Drops*4, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
+  # legato (range 1 5 isaw)
+  -- # bpf (range 100 2000 sine) # bpq (range 50 2000 (square * sine))
+  -- # crush (sine * tri * 15)
+  -- # ring sine # ringf (range 100 500 isaw)
 
 d1 silence
 
@@ -17,12 +18,11 @@ d2
 d2 silence
 
 d6
-  -- $ mask "<f(3,8), t(2,8)>"
+  $ mask "<f(3,8), t(2,8)>"
   $ iter 8
   $ off 2 (jux (chop 32))
-  $ s "bass8"
-  # n (scale "minPent")
-  +| note "0 .. 12"
+  $ n (scale "ritusen" "0 .. 7")
+  # s "bass8"
   # crush (sine * 5)
   # gain 0.7
 
