@@ -19,7 +19,7 @@ d2 $ fast 4 $ s "Hats:2 Hats:4" # cut 1
 
 d2
   $ every 3 (jux rev)
-  $ superimpose (fast 2)
+  -- $ superimpose (fast 2)
   $ every 2 (mask "t f")
   $ struct "t f f [t ~]" $ striate "<4 16 32 128>" $ s "race_car" # speed (sine * square) # legato (sine + 3)
 
