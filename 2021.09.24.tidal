@@ -1,14 +1,16 @@
 d1
-  -- $ every 2 (jux rev)
+  $ every 2 (jux rev)
   $ mask "[t, f(5,8)]"
-  -- $ every 5 (chop 32)
-  $ slow "~ <1 2 3 4>"
-  $ "[Bass_Drops*4, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
+  $ every 5 (chop 32)
+  -- $ slow "~ <1 2 3 4>"
+  -- $ n (run 100)
+  $ "[Bass_Drops, Bass_Drums*4, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
+  # n (run 1000)
   # legato (range 1 5 isaw)
-  # speed 1
+  # note "0 4 5 7"
   -- # bpf (range 100 2000 sine) # bpq (range 50 2000 (square * sine))
   -- # crush (sine * tri * 15)
-  -- # ring sine # ringf (range 100 500 isaw)
+  # ring sine # ringf (range 100 500 isaw)
 
 d1 silence
 
@@ -28,10 +30,19 @@ d6
   # crush (sine * 5)
   # gain 0.7
 
-d1
-  $ slow 4 $ n "-12 -24 0 7" # s "t1002"
-  # crush 5
+d6 silence
+
+d4
+  $ slow 4
+  $ n "-12 -24 0 7"
+  # s "t1002"
+  -- # squiz 5
+  # crush (square * 5)
+  -- # delay 1 # delayfb 0.8
   -- # amp 2
+  # gain 1.1
+
+d4 silence
 
 hush
 
