@@ -5,13 +5,14 @@ d1
   -- $ slow "~ <1 2 3 4>"
   -- $ n (run 100)
   -- $ superimpose (fast 2)
+  $ iter 8
   $ "[Bass_Drops?, Bass_Drums*4?, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
   # n (run 100)
   # legato (range 1 5 isaw)
   # note "0 4 5 7"
   -- # bpf (range 100 2000 sine) # bpq (range 50 2000 (square * sine))
   -- # crush (sine * tri * 15)
-  # ring (square * saw) # ringf (range 100 500 isaw)
+  -- # ring (square * saw) # ringf (range 100 500 isaw)
 
 d1 silence
 
