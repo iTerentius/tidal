@@ -2,8 +2,10 @@ d1
   -- $ every 2 (jux rev)
   $ mask "[t, f(5,8)]"
   -- $ every 5 (chop 32)
+  $ slow "~ <1 2 3 4>"
   $ "[Bass_Drops*4, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
   # legato (range 1 5 isaw)
+  # speed 1
   -- # bpf (range 100 2000 sine) # bpq (range 50 2000 (square * sine))
   -- # crush (sine * tri * 15)
   -- # ring sine # ringf (range 100 500 isaw)
@@ -25,6 +27,11 @@ d6
   # s "bass8"
   # crush (sine * 5)
   # gain 0.7
+
+d1
+  $ slow 4 $ n "-12 -24 0 7" # s "t1002"
+  # crush 5
+  -- # amp 2
 
 hush
 
