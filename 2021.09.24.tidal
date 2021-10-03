@@ -1,21 +1,25 @@
 d1
-  $ every 2 (jux rev)
-  $ mask "[t, f(5,8)]"
+  -- $ every 2 (jux rev)
+  $ mask "[t, f(3,8)]"
   $ every 5 (chop 32)
   -- $ slow "~ <1 2 3 4>"
   -- $ n (run 100)
-  $ "[Bass_Drops, Bass_Drums*4, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
-  # n (run 1000)
+  -- $ superimpose (fast 2)
+  $ "[Bass_Drops?, Bass_Drums*4?, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
+  # n (run 100)
   # legato (range 1 5 isaw)
   # note "0 4 5 7"
   -- # bpf (range 100 2000 sine) # bpq (range 50 2000 (square * sine))
   -- # crush (sine * tri * 15)
-  # ring sine # ringf (range 100 500 isaw)
+  # ring (square * saw) # ringf (range 100 500 isaw)
 
 d1 silence
 
+d2 $ fast 4 $ s "Hats:2 Hats:4" # cut 1
+
 d2
   $ every 3 (jux rev)
+  $ superimpose (fast 2)
   $ every 2 (mask "t f")
   $ struct "t f f [t ~]" $ striate "<4 16 32 128>" $ s "race_car" # speed (sine * square) # legato (sine + 3)
 
@@ -23,6 +27,7 @@ d2 silence
 
 d6
   $ mask "<f(3,8), t(2,8)>"
+  $ slow 4
   $ iter 8
   $ off 2 (jux (chop 32))
   $ n (scale "ritusen" "0 .. 7")
