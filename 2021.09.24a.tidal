@@ -2,25 +2,26 @@ let cx1 = (cF 1 "49")
 
 d1
   -- $ every 2 (jux rev)
-  $ mask "[<t(3,8) ~ >/2]"
+  $ mask "[<t(3,8) ~ >]"
   $ every 4 (chop "<4 8 16 32>")
   -- $ slow "~ <1 2 3 4>"
-  $ n (run 100)
-  -- $ superimpose (fast 2)
+  -- $ n (run 100)
+  $ superimpose (fast 2)
   -- $ iter 16
   -- $ every 3 legato (range 1 5 isaw)
-  # "[Bass_Drops?, Bass_Drums*4?, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
-  -- # n (run "<100 50>")
+  $ s "[Bass_Drops?, Bass_Drums*4?, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
+  -- # "[Bass_Drops?, Bass_Drums*4?, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
+  +| n (run "<100 50>")
   -- # note ("0 4 5 7")
   -- # bpf (range 100 2000 sine) # bpq (range 50 1000 (square * sine))
-  -- # crush (sine * tri * 15)
+  # crush (sine * rand * 15)
   -- # ring (square * saw) # ringf (range 100 500 isaw)
   # gain 0.8
 
 d1 silence
 
 p "hats" $ every 4 (fast 4) $ s "Hats:2 Hats:4" # legato 1
-    # crush (sine + 2)
+    -- # crush (sine + 2)
 
 d2
   $ every 3 (jux rev)
@@ -31,11 +32,11 @@ d2
 d2 silence
 
 d6
-  -- $ mask "<f(3,8), t(2,8)>"
+  $ mask "<f(3,8), t(2,8)>"
   -- $ slow 4
   -- $ iter 8
   $ off 2 (jux (chop 32))
-  $ n (scale "ritusen" "0 .. 7")
+  $ n (scale "lydian" "0 .. 7")
   # s "bass8"
   # crush (sine * 5)
   # gain 0.7
