@@ -132,3 +132,8 @@ d6 $ sound "readorb:4"
   # hpf 1000 # hpq 1
 
 d1 $ sound "can*2" # pan "0" # up "{1 2 3 4}/4"
+
+d1
+    $ mask "t(3,8)"
+    $ s "[sd bd](<3 2 5>,16,[0,1,3])"
+    +| n (run 50)
