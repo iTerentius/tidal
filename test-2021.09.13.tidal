@@ -15,6 +15,8 @@ d2
 
 d2 silence
 
+d3 $ iter 2 $ n "{3! 5 -9!}/2" # s "t1002"
+
 d6
 
 hush
