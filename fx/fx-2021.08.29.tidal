@@ -10,7 +10,7 @@ d8
   $ jux rev
   $ s "[readorb:0, readorb:2, readorb:3]"
   # delay 0.5 # delayfb 0.8 # delayt (sine * 2)
-  # crush (cF 1 "19")
+  -- # crush (cF 1 "19")
   -- # squiz (cF 20 "35")
   # gain (cF 0.5 "83")
 
