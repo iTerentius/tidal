@@ -1,7 +1,7 @@
 setcps (130/60/4)
 
 d1
-  $ qtrigger 1
+  -- $ qtrigger 1
   -- $ jux (slow 2)
   $ chunk 16 (iter "<2 4 [8 2]>")
   $ iter 2
@@ -20,13 +20,13 @@ d1
   -- # amp (range 0.7 0.5 saw)
   -- # begin (slow 4 isaw)
   # end (slow 2 (saw * cosine))
-  # legato 3
+  -- # legato 3
   -- # cut 1
   -- # room 0.3 # sz 0.2
   -- # crush (sine * "<5 2 [4 0] 10>")
   -- # djf 0.5 # lpf (range 1200 50 (slow 2 sine * tri)) # lpq square
   -- # amp 1
-  # gain (cF 0.8 "77")
+  -- # gain (cF 0.8 "77")
 
  d1 silence
 
@@ -39,8 +39,8 @@ d1
   $ n "<e3'min e4'min7 g5'maj'5 d5'min'4>"
   # s "juno ade" # gain 0.7
   # legato 2
-  # distort 4
-  -- # cut 1
+  # distort (sine * 4)
+  # cut 1
 
 d2
   $ jux rev
@@ -58,7 +58,7 @@ d2 silence
 d3
     $ qtrigger 1
     $ mask "<t f>"
-    -- $ every 4 (mask "<t f>")
+    $ every 4 (mask "<t f>")
     $ slow 2
     $ n "[e3 <e4> a5 <a4 a5>]"
     # s "bass8"

@@ -9,9 +9,10 @@ d1 $ cat [sound "bd*2 sn", sound "jvbass*3", sound "drum*2", sound "ht mt"]
 d1 $ striate 4 $ s "AKWF_granular*512"
     |+ n (run 44)
     # gain 0.6
-    # crush 4
+    -- # crush 4
 
-setcps 2
+setcps 1
 
 d1 $ jux rev $ s "hoarder(3,8)" # n (irand 20) # legato (run 5)
-#cps (slow 8 $ 0.5 + saw)
+
+cps (slow 8 $ 0.5 + irand 1)

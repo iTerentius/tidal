@@ -1,11 +1,11 @@
 d1
   $ every 2 (jux rev)
-  $ mask "t f(4,8)"
+  $ mask "t f(3,8) t"
   $ every 5 (chop 16)
-  $ "[Bass_Drops*4, sd(5,8), ho*4?0.8 hc*4]"
+  $ "[Bass_Drops*4, sd(3,8), ho*4?0.8 hc*4]"
   # legato 2
-  -- # bpf (range 100 2000 sine) # bpq (square * sine)
-  # crush (sine * 150)
+  -- # bpf (range 100 2000 sine) # bpq (square * saw)
+  # crush (sine * 15)
 
 d4 silence
 
@@ -24,7 +24,7 @@ d2
 
 d2 silence
 
-d3 $ iter 2 $ n "<3! -5 -7! 2>*4" # s "t1002"
+d3 $ chunk 4 (# crush "<3 10>") $ iter 2 $ n "<3! -5 -7! 2>*4" # s "t1002"
 
 d3 silence
 

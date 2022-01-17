@@ -13,6 +13,7 @@ d1
   -- # bpf (range 100 2000 sine) # bpq (range 50 2000 (square * sine))
   -- # crush (sine * tri * 15)
   # ring (square * saw) # ringf (range 100 500 isaw)
+  -- # pan sine
 
 d1 silence
 
@@ -22,7 +23,7 @@ d2
   $ every 3 (jux rev)
   -- $ superimpose (fast 2)
   $ every 2 (mask "t f")
-  $ struct "t f f [t ~]" $ striate "<4 16 32 128>" $ s "race_car" # speed (sine * square) # legato (sine + 3)
+  $ struct "t f f [t ~]" $ striate "<4 16 32 128>" $ s "Cat-Water" # speed (sine * square) # legato (sine + 3)
 
 d2 silence
 
