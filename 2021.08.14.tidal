@@ -17,18 +17,21 @@ d2 $ slow (cR 1 "21") $ sound "amencutup" # room (cF 10 "22") # sz (cF 1 "23")
 d2 silence
 
 
-d1 $ stack [
+d1 
+  $ mask "t f t"
+  $ stack [
   sound "bd bd*2",
-  sound "hh*2 [sn perc:3] Cat-Water Hats*4"
+  sound "hh*2 [sn perc:3] Cat-Water Hats*4",
   sound "superfm" +| n (run 8*2 -12)
- ] # speed sine*4
-
+ ]
+ # speed sine*4
+ # amp 0.4
 
 d2 $ whenmod 5 3 (striate 3) $ stack [
   sound "Bass_Drops(4,7) bd*2",
   sound "Hats*2 [sn cp] cp hoarder*4",
   sound "Cat-Water Bass_Drums" +| n "0 .. 15"
-] # speed "[[1 0.8], [1.5 2]*2]/3"
+] # speed "[[1 0.8], [1.5 2]*2]/3" # amp 0.2
 
 d1 silence
 
