@@ -2,6 +2,8 @@ d1 $ mask "t(3,8)" $ fast 4 $ chunk 8 (|- note 12) $ arp "<up down>" $ n "<c'min
 
 d1 silence
 
+d2 $ "bd"
+
 d4 $ s "bd sd"
   
 
