@@ -1,0 +1,19 @@
+let pats =
+        [
+          ("a", stack [n "a4 d3 ~ g4" # s "bass8" # gain "0.7",
+                       n (run 10) +| s "Bass_Drums*4" # gain "0.8",
+                       n "1 5 10" # s "Hats(7,8)" # gain "0.7",
+                       n "1 5 7" # s "t1002" # gain "0.7"
+                      ]
+          ),
+          ("b", stack [n "c4 [c4 d5] g4" # "bass8" # gain "0.7",
+           n "1 1 5" # s "Bass_Drums Bass_Drops Hats*2" # gain "0.7",
+           n "[c8 e7? <b5 a5?>]" # s "t1002" # gain "0.8"
+                      ]
+          )
+         ]
+in
+d1 $ ur 8 "a b" pats []
+
+
+d2 $ n "1 5 7" # s "t1002" # amp 1

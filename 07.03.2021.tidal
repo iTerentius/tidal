@@ -44,3 +44,5 @@ d3 silence
 d4 $ slow 2 $ rev $ chop 16 $ sound "breaks125"
 
 d4 silence
+
+hush
