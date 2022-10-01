@@ -15,4 +15,6 @@ d2 $ "Hats(5,8)" |* n (run 10)
 
 d2 silence
 
+hush
+
 panic 
