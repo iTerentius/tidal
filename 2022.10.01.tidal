@@ -3,13 +3,14 @@ let kick_mult = 10
 d1 $ s "Bass_Drums*16" |+ n (run 10)
   # speed (slow 2 $ range 0.5 "<2 4>" saw)
   # ring 0.5 #ringf (cat [square, sine] * 500) 
-  -- # att 1 # rel 2j
+  -- # att 1 # rel 2
+  # gain 0.8
 
 d1 silence
 
 d2 $ "Hats(5,8)" |* n (run 10)
   # dry 1 # room 0.8 # sz 0.8
-  #crush 4
+  # crush 8 
   # delay 0.5 # delaytime 1 # delayfeedback 0.8
 
 d2 silence
