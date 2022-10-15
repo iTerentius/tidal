@@ -26,7 +26,7 @@ d3
 
 d3 silence
 
-d7 $ jux rev $ s "roll_door_2" |+ n (run 12) # legato "<0 2 4>" # delay sine
+d7 $ jux rev $ s "race_car" |+ n (run 12) # legato "<0 2 4>" # delay sine
 
 d7 silence
 
@@ -34,10 +34,14 @@ d4 $ s "Snare_Drums" # n (run 100) # crush (sine * 10)
 
 d4 silence
 
-d5 $ slow 4 $ chop 4 $ arp "up down" $ n "a3'min e3'min" # s "superfm" # gain 0.8
+d5 $ slow 4 $ chop "<2, 4, 8>" $ arp "up down" $ n "a3'min e3'min" # s "superfm" # gain 0.5
   # crush (sine * 0.5)
 
+d5 silence
+
 d6 $ mask "<t f>" $ arp "down pinky" $ n "<a4'min7 e4'min7 ~ >" # s "bass8"
+
+d6 silence
 
 d9 $ mask "t(5,8)" $ slow 2 $ s "[readorb:0, readorb:1, readorb:2, readorb:3]"
   # delay 1
@@ -45,3 +49,5 @@ d9 $ mask "t(5,8)" $ slow 2 $ s "[readorb:0, readorb:1, readorb:2, readorb:3]"
   # crush sine
 
   d9 silence
+
+  hush

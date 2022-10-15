@@ -1,0 +1,12 @@
+d1 $ n "0 2 4 7" # s "midi"
+
+d2 $ ccn "30*4" # ccv (range 20 100 $ slow 30 sine) # s "midi"
+
+
+setcps 0.5
+
+sendMsg sock "bpm 155"
+
+hush
+
+
