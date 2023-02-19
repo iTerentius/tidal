@@ -15,6 +15,10 @@ d2 $ "Hats(5,8)" |* n (run 10)
 
 d2 silence
 
+d3 $ mask "t f(3,8) f" $ s "<Andreis_Bell Hoarder>" |+| n (run 20)
+  # legato 10
+  # ring 0.5 #ringf (cat [square, sine] * 100)
+
 hush
 
 panic 
