@@ -12,3 +12,5 @@ d2 silence
 d3 $ n "0 3 [4 7] 9 11 -7" # s "midi" # midichan 2 # legato 4
 
 d4 $ ccv (fastGap 4 "130 40 100 30 70" / (run 10)) # ccn 1 # s "midi" # midichan 2
+
+hush
