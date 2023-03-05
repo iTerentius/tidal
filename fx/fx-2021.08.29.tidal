@@ -16,6 +16,5 @@ d8
 
 d8 silence
 
-d9
-  $ s "[readorb:1, readorb:6, readorb:7]"
-  # bpf (cF 1 "48")
+d9 $ slice 8 "7 6 5 4 3 2 1 0" $ s "[readorb:1, readorb:6, readorb:7]"
+  
