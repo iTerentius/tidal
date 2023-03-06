@@ -12,7 +12,9 @@ d2 $ "Hats(3,8)" |* n (run 10)
   # pan sine
   # dry 1 # room 0.8 # sz 0.8
   # crush 8 
-  # delay 0.5 # delaytime 1 # delayfeedback 0.8
+  # delay 0.5 
+  # delaytime 1 
+  # delayfeedback 0.8
 
 d2 silence
 

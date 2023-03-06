@@ -1,4 +1,4 @@
-d1 $ cat [sound "Bass_Drums*2 Snare_Drums*4?", sound "<moog bass8*2, t1002>"] |+ n (run 30)
+d1 $ cat [sound "Bass_Drums*2 Snare_Drums*4?", sound "<moog(7,8) bass8*2, t1002>"] |+ n (run 30)
     -- # crush "1 2 3 4"
     # pan sine
     # gain 0.8
@@ -9,8 +9,11 @@ d1 $ cat [sound "bd*2 sn", sound "jvbass*3", sound "drum*2", sound "ht mt"]
 
 d4 silence
 
-d4 $ jux rev $ mask "t t f" $ s "AKWF_granular*50"
-    +| n (run 44)
+d4 
+    -- $ jux rev 
+    $ mask "t t(3,8) f" 
+    $ s "AKWF_granular*50"
+    -- +| n (run 44)
     # gain 0.7
     # crush 4
 
