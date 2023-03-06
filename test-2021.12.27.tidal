@@ -1,4 +1,4 @@
-d2 $ cat [sound "Bass_Drums*2 Snare_Drums*4?", sound "<moog bass8*2, t1002>"] |+ n (run 30)
+d1 $ cat [sound "Bass_Drums*2 Snare_Drums*4?", sound "<moog bass8*2, t1002>"] |+ n (run 30)
     -- # crush "1 2 3 4"
     # pan sine
     # gain 0.8

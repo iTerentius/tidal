@@ -2,7 +2,7 @@
 d1 $ chop 16 $ every 4(jux rev) $ "[<Bass_Drums(3,8) Bass_Drops> ~, sn(3,8), Hats]"
   # amp 0.2
   # crush "<3 40 10>"
-  -- # ring "1 0" # ringf "100 220" #ringdf "<50 100>"
+  # ring "1 0" # ringf "100 220" #ringdf "<50 100>"
   # room "0.5 0 1"
 
 d2 $ jux rev $ chop "<16 32>" $ slow 16 $ n "[3, {4 5}]*8"
