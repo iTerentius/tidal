@@ -11,17 +11,22 @@ d4 silence
 
 d4 
     -- $ jux rev 
-    $ mask "t t(3,8) f" 
+    $ mask "t*2 ~" 
     $ s "AKWF_granular*50"
     -- +| n (run 44)
     # gain 0.7
-    # crush 4
+    -- # crush 4
 
 setcps 1
 
-d5 $ jux rev $ s "hoarder(3,8)" # n (irand 20) # legato (run 5)
-# delay 0.6
-# room sine
+d5 
+    $ mask ("f t")
+    $ jux rev 
+    $ s "hoarder(3,8)" 
+    # n (irand 20) 
+    # legato (run 5)
+    # delay 0.6
+    # room sine
 
 cps (slow 8 $ 0.5 + irand 1)
 

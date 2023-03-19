@@ -30,7 +30,9 @@ d7 $ jux rev $ s "race_car" |+ n (run 12) # legato "<0 2 4>" # delay sine
 
 d7 silence
 
-d4 $ s "Snare_Drums" # n (run 100) # crush (sine * 10)
+d4 $ s "Snare_Drums" # n (run 100) 
+  -- # crush (sine * 10)
+  # gain 0.9
 
 d4 silence
 

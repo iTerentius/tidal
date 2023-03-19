@@ -1,0 +1,23 @@
+d1 $ jux rev $ n (off 0.125 (|+ 12) $ off 0.125 (|+ 7)  "<c*3 a(3,8) f(3,8,2) e*2>")
+  # sound "test"
+  # legato "<2, 3>, <4, 5>"
+  -- # pF "noise" (saw * 20)
+
+d1
+  $ chop "<2 4>" 
+  $ slow 4 
+  $ rolled 
+  $ n (off 0.125 (|- 12) $ off 0.25 (|+ 7) "<d'maj a'min7 e'min7>")
+  # sound "test"
+  # sustain "<3 1 5>"
+  # legato "<2 4 6>"
+  -- # pF "noise" (saw * 2)
+  # pF "ph" "<1 2 3 4 5>"
+  -- # pF "end" sine
+  # gain 0.8
+
+  d1 silence
+
+  d1 $ n (arpg "'major7 [0,4,7,11]") # sound "superpiano"
+
+hush

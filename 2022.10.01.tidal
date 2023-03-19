@@ -11,10 +11,10 @@ d1 silence
 d2 $ "Hats(3,8)" |* n (run 10)
   # pan sine
   # dry 1 # room 0.8 # sz 0.8
-  # crush 8 
-  # delay 0.5 
-  # delaytime 1 
-  # delayfeedback 0.8
+  -- # crush 8 
+  -- # delay 0.5 
+  -- # delaytime 1 
+  -- # delayfeedback 0.8
 
 d2 silence
 
@@ -22,6 +22,9 @@ d3 $ chop 2 $ mask "t f" $ s "<Andreis_Bell:2 ~ roll_door_2:5>" |+| n (run 8)
   # legato (sine * 10)
   # ring 0.5 #ringf (cat [square, sine] * 100)
 
+d3 silence
+
 hush
+
 
 panic 
