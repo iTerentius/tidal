@@ -1,6 +1,6 @@
 d1 $ jux rev $ n (off 0.125 (|+ 12) $ off 0.125 (|+ 7)  "<c*3 a(3,8) f(3,8,2) e*2>")
   # sound "test"
-  # legato "<2, 3>, <4, 5>"
+  # legato "[<2, 3>, <4, 5>]"
   -- # pF "noise" (saw * 20)
 
 d1
@@ -18,6 +18,6 @@ d1
 
   d1 silence
 
-  d1 $ n (arpg "'major7 [0,4,7,11]") # sound "superpiano"
+  d1 $ n (arpg "'major7 [0,4,7,11]") # sound "test"
 
 hush

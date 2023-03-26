@@ -10,10 +10,10 @@ d1 $ cat [sound "bd*2 sn", sound "jvbass*3", sound "drum*2", sound "ht mt"]
 d4 silence
 
 d4 
-    -- $ jux rev 
+    $ jux rev 
     $ mask "t*2 ~" 
     $ s "AKWF_granular*50"
-    -- +| n (run 44)
+    +| n (run 44)
     # gain 0.7
     -- # crush 4
 
