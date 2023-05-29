@@ -1,0 +1,11 @@
+d3 
+  $ every 4 (slow 2)
+  $ iter 4 
+  -- $ randslice 4 
+  $ "Cat-Water*4"
+  |+ n (run 100) 
+  # legato (sine * 4)
+
+d2 $ every 4 (mask "~") $ "[Bass_Drums(2,7)*4, Hats(3,8)]*4" # n (run 4)
+
+d2 silence

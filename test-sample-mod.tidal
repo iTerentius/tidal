@@ -1,0 +1,8 @@
+d1
+$ mask "t(3,8)"
+$ fast "{4 8 16}%4"
+# begin (run 20)
+$ s "{roll_door_2:5 hoarder:5}%5"
+# cut "<8 2 1>"
+# legato 1
+# sustain (sine * 8)
