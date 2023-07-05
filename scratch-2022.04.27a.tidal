@@ -3,7 +3,7 @@ d1
   $ n (off 0.125 (|+ 12) $ off 0.125 (|+ 7)  "<c*3 a(3,8) f(3,8,2) e*2>")
   # sound "bass8"
   # legato "[<2, 3>, <4, 5>]"
-  # gain 0.7
+  # gain (cF 0.5 "21")
   -- # pF "noise" (saw * 20)
 
 d2
@@ -17,8 +17,8 @@ d2
   -- # pF "noise" (saw * 2)
 --  # pF "ph" "<1 2 3 4 5>"
   -- # pF "end" sine
-  # gain 0.5
-  # amp 0.5
+  # gain (cF 0.5 "22")
+  -- # amp 0.5
 
   d2 silence
 
@@ -26,10 +26,13 @@ d3
   $ slow 2 
   -- $ rolled 
   $ n (arp "<pinkyup down thumbup up>" "[c4'minor7 a3'minor7] ~ d3'minor'7") 
-  # sound "test"
+  # sound "bass8"
   # sustain 2
   # legato "<1 2>"
   # octave 5
+  # gain 0.7
+
+  d2 silence
 
 d7 
   $ slow 9

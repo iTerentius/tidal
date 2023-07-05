@@ -21,5 +21,7 @@ d8 silence
 
 d9 $ slow 2 $ chop 8 $ s "[readorb:1, readorb:6, readorb:7]"
 
+d10 $ mask "f t" $ s "[readorb:2]"
+
 hush
   

@@ -1,8 +1,12 @@
-d1
-$ mask "t(3,8)"
+p "roll"
+$ jux rev
+$ mask "t(3,8) f"
 $ fast "{4 8 16}%4"
-# begin (run 20)
-$ s "{roll_door_2:5 hoarder:5}%5"
+$ begin "<0.1 0.2 0.5 0.7>"
+# s "{roll_door_2:5 Storm}%5"
 # cut "<8 2 1>"
+-- # slow 2
 # legato 1
 # sustain (sine * 8)
+
+hush

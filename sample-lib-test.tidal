@@ -2,11 +2,13 @@ d1
   $ mask "<t f f(2,9)>" 
   $ s "xLDk_Linn_9000*8" 
   |+ n "1..100" 
+  # slow 2
   # cut 1
 
 d1 silence
 
 d2 
+  $ mask "<t(3,8) f>"
   $ s "Neutron_12*16" 
   |+ n "1..10" 
   # cut "{1..4}%3"
@@ -16,7 +18,8 @@ d2 silence
 d3 
   $ slow "{1..4}"
   $ chop 32 
-  $ s "Bass_Drums*2" 
+  $ s "Bass_Drums*2"
+  # n "{1..100}%5"
   # cut 4
 
 d3 silence
