@@ -11,3 +11,5 @@ d2 $ jux' [id, rev, (# speed 2)] $ every 2 ("<0.25 0.125 0.5>" <~) $ slow 3 $ so
   # sz 0.5
   
 d2 silence
+
+hush

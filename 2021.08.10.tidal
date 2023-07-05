@@ -62,3 +62,5 @@ d5 $ jux rev $ slow 4 $ chop "<64 128>" $ n "1 2 ~ ~"
     # pan sine
 
 d5 silence
+
+hush
