@@ -1,6 +1,9 @@
 
+let
+  pF
 
-d7 $ s "[readorb:0, readorb:2, readorb:1, readorb:4]"
+
+d7 $ s "[readorb:0, readorb:2, readorb:1, readorb:3 readorb:4]"
   # room (cF 0.5 "13") #sz (cF 0.5 "29")
   # gain (cF 0.5 "82")
 
@@ -8,7 +11,7 @@ d7 silence
 
 d8
   $ jux rev
-  $ s "[readorb:0, readorb:2, readorb:3]"
+  $ s "[readorb:0, readorb:2, readorb:3, readorb:4]"
   # delay 0.5 # delayfb 0.8 # delayt (sine * 2)
   # crush (cF 1 "19")
   # squiz (cF 20 "35")
@@ -16,5 +19,9 @@ d8
 
 d8 silence
 
-d9 $ slice 8 "7 6 5 4 3 2 1 0" $ s "[readorb:1, readorb:6, readorb:7]"
+d9 $ slow 2 $ chop 8 $ s "[readorb:1, readorb:6, readorb:7]"
+
+d10 $ mask "f t" $ s "[readorb:2]"
+
+hush
   

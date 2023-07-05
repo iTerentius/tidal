@@ -1,0 +1,40 @@
+d3 
+  $ every 4 (slow 2)
+  $ iter 4 
+  $ randslice 4 
+  $ "Cat-Water*4"
+  |+ n (run 100) 
+  # cut 4
+ # gain 2
+
+d2 
+$ every 4 (mask "~") 
+$ s "[Bass_Drums(2,7), Hats(3,8)]" 
+# n (run 4)
+
+d2 silence
+
+hush
+
+
+-- TidalCycles code for an intricate pattern
+d1 
+    -- $ (0.25 <~) 
+    $ chunk 8 (off 0.25 (|- "7 5"))
+    $ sound "Bass_Drums {Snare_Drums bass8:2}%4"
+    # n (scale "minPent" "0..7")
+    # gain "1.5"
+    # speed "0.8"
+
+d2 $ sound "Hats(2,9)"
+    # gain 1.2
+    # speed 1.2
+
+d3 $ sound "cp cp(3,8)"
+    # gain "0.5"
+    # speed "0.9"
+
+d4 $ sound "bd(3,8) [sn:2 ~ arpy:3]*2"
+    # gain "1.2"
+    # speed "0.95"
+

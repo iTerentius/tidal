@@ -1,0 +1,44 @@
+d1
+  -- $ slow "{2 4}%4"
+  $ s "<test*16 supersaw*16>"
+    -- # (off 0.25 (|+ 5) 
+    -- $ off 0.125 (|- 7)
+    -- (scale "minPent" "{-12..0}%5"))
+  # n (scale "minPent" "{-12..0}%5 ~")
+  # sustain 0.1
+  # legato (sine * 2)
+  # djf 0.5
+  -- # voice "<1..5>"
+  # gain 0.8
+
+d1 silence
+
+d2
+  $ s "Hats*2(3,8)"
+  # n "{5..10}%5"
+  # gain 0.8
+  
+d2 silence
+
+d3
+  -- $ fast 2
+  -- $ mask "t(3,8) f(5,7)"
+  $ s "Bass_Drums*4"
+  # n "{1..5}%5"
+
+d3 silence
+
+do
+  let sampn = 5
+
+d4
+  $ mask "f t"
+  $ jux rev
+  $ chop "<2 4 6 8>" 
+  $ s "<roll_door_2 race_car>" 
+  # n "{0..10}%10"
+  # sustain 0.8
+
+d4 silence
+
+

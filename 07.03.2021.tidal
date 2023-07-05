@@ -31,7 +31,7 @@ d5 $ jux rev $ slow 4
 
 d5 silence
 
-d2 $ n "0 2 1 <3 [4 <5 6>] 5>"
+d2 $ n "0 2*2 1 <3 [4 <5 6>] 5>"
   # s "Bass_Drums <Hats Snare_Drums:7 Snare_Drums:4?>!"
   # pan sine
 

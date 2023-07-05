@@ -1,9 +1,11 @@
 
-d1 $ chop 16 $ every 4(jux rev) $ "[<Bass_Drums(3,8) Bass_Drops> ~, sn(3,8), Hats]"
-  # amp 0.2
+p "drums" $ chop 16 $ every 4(jux rev) $ "[<Bass_Drums(3,8) Bass_Drops> ~, sn(3,8), Hats]"
   # crush "<3 40 10>"
   # ring "1 0" # ringf "100 220" #ringdf "<50 100>"
   # room "0.5 0 1"
+  # gain 0.8
+
+p "drums" silence
 
 d2 $ jux rev $ chop "<16 32>" $ slow 16 $ n "[3, {4 5}]*8"
   |+ s "~ <Hat_Loops roll_door_2>/2"
