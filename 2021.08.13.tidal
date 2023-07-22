@@ -22,8 +22,8 @@ d1 $ stack [
  ] # speed sine*4
 
 d2 $ whenmod 5 3 (striate 3) $ stack [
-  sound "Bass_Drops bd*2",
-  -- sound "Hats*2 [sn cp] cp hoarder*4",
+  -- sound "Bass_Drops bd*2",
+  sound "Hats*2 [sn cp] cp hoarder*4",
   sound "Cat-Water Bass_Drums" +| n "0 .. 15"
 ] # speed "[[1 0.8], [1.5 2]*2]/3"
 # amp (cF 1 "28")
