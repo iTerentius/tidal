@@ -30,6 +30,8 @@ d2 $ whenmod 5 3 (striate 3) $ stack [
 
 d1 silence
 
+hush
+
 d1 $ superimpose (fastGap 4) $ n (run 8) +| sound "Bass_Drops sn [cp ht] hh"
 
 d1 $ layer [rev, fast 2] $ sound "arpy [~ arpy:4]"
@@ -43,14 +45,17 @@ d6
   # amp (range 0 1 (cF 1 "43"))
   # gain 0.6
 
-d1 $ (striate 4) $ slow 1 $ s (steps [("Hats","x  x x  x x  x"),("Bass_Drums", "xx xx")])
-  -- # bpf (range 0 1200 $ (cF 1 "21"))
+d1 
+  $ (striate 4) 
+  $ slow 1 
+  $ s (steps [("Hats","x  x x  x x  x"),("Bass_Drums", "xx xx")])
+  # bpf (range 0 1200 $ (cF 1 "21"))
   # bpf (range 0 1200 $ rand)
-  -- # bpf (range 0 1200 $ (slow 4 square) + sine * 2)
+  # bpf (range 0 1200 $ (slow 4 square) + sine * 2)
   # bpq (range 0 1200 $ ( cF 1 "22"))
   # room (cF 1 "23")
   # sz (cF 1 "24")
-  -- # hpq (1-(cF 1 "22"))
+  # hpq (1-(cF 1 "22"))
   -- # djf sine
   # crush ( range 0 10 (cF 1 "25"))
   # gain 0.5

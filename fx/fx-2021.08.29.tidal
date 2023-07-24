@@ -1,11 +1,10 @@
 
-let
-  pF
-
-
-d7 $ s "[readorb:0, readorb:2, readorb:1, readorb:3 readorb:4]"
-  # room (cF 0.5 "13") #sz (cF 0.5 "29")
+d7 
+  $ s "[readorb:0, readorb:2, readorb:1, readorb:3 readorb:4]"
+  # room (cF 0.5 "13") 
+  #sz (cF 0.5 "29")
   # gain (cF 0.5 "82")
+  -- # orbit 10
 
 d7 silence
 

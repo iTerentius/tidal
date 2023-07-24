@@ -4,8 +4,8 @@ d3
   $ randslice 4 
   $ "Cat-Water*4"
   |+ n (run 100) 
-  # cut 4
- # gain 2
+--   # cut 4
+# gain 1
 
 d2 
 $ every 4 (mask "~") 

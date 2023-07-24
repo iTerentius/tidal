@@ -27,13 +27,15 @@ d1
  # speed sine*4
  # amp 0.4
 
+d1 silence
+
 d2 $ whenmod 5 3 (striate 3) $ stack [
   sound "Bass_Drops(4,7) bd*2",
   sound "Hats*2 [sn cp] cp hoarder*4",
   sound "Cat-Water Bass_Drums" +| n "0 .. 15"
 ] # speed "[[1 0.8], [1.5 2]*2]/3" # amp 0.2
 
-d1 silence
+d2 silence
 
 d1 $ superimpose (fastGap (run 8)) $ n (run 8) +| sound "Bass_Drops Snare_Drums [Clap ht] Hats*2"
 
