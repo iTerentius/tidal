@@ -1,5 +1,0 @@
-d1 $ stack [
-  s "<Bass_Drums:1*16 Bass_Drums:2*2 Bass_Drums:2*2 Bass_Drums:1>",
-  s "Hats(5,8)" |+ n (run 20)
-    # crush 4 # pan sine
-]

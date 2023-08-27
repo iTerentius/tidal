@@ -1,0 +1,58 @@
+d1
+    $ s "Bass_Drums*4"
+    # n (run 100)
+    -- # ring 0.5
+    -- # ringf sine
+    -- # ringdf tri
+    # gain 0.9
+
+d2
+    $ slow 2
+    $ s "[Hats]*2"
+    -- |+ n (run 100)
+    -- # ring sine
+    -- # ringf tri
+    -- # delay sine
+    -- # delaytime sine
+    -- # lock "3 4 5 6"
+    # gain 0.8
+
+d3
+    $ every 8 (jux rev)
+    -- $ every 2 (fastGap 2)
+    $ arp "[pinkyup down thumbown up]" 
+    $ n (off 0.25 (+12) 
+    $ off 0.125 (+7) 
+    "<e'min c'maj'7 a'maj>"
+    -- $ slow 2 "5 1 3 7")
+    # s "cello"
+    -- # sustain "<2 1 2>"
+    -- # legato "<2 3 1>"
+    # gain 0.9
+
+hush
+
+d1 $ sound "Bass_Drums*4" # vowel "a o e e"
+
+d4 
+    $ jux rev
+    $ palindrome 
+    -- $ vowel "a o u ~ i" 
+    $ n (run 10) 
+    # s "cello" 
+    # speed 0.5 
+-- # n (run 100)
+    -- # room 0.5 # sz 0.3
+    # sustain 1.5
+    # gain 0.9
+
+d1 
+    $ arp "pinkyup down thumbdown up"
+    $ n "c'maj a'min e'maj" 
+    # s "cello" 
+    # pF "atk" 0.5
+    -- #pF "Órq" sine
+    -- #pF "rls" saw 
+    # sustain 1
+
+    setcps 4
