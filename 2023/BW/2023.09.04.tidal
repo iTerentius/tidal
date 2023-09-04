@@ -1,0 +1,72 @@
+-- Bitwig
+
+let kick = "c3"
+
+-- 2021.08.03-midi
+d1 $ fastGap 2 $ n "[c3(3,8), <c7 c6 ~>(7,8) ~]" # s "midi" # midichan 1
+
+d2 $ n "{c3(3,8), ~}*2" # s "midi" # midichan 0 
+
+d3 $ fast 2 $ n "{0 3 [4 7] 9 11 -7}%3" # s "midi" # midichan 1
+
+d4 $ ccv (fastGap 4 "130 40 100 30 70" / (run 10)) # ccn 1 # s "midi" # midichan 0
+
+d1 $ n "c3*4" # s "midi" # midichan 0 # gain sine
+
+d2 $ n "ds3*8" # s "midi" # midichan 0
+
+d1 silence
+
+d2 $ fast 2 $ ccv "0..127" # ccn 1 # s "midi" # midichan 0
+
+-- Drums
+d1 $ stack [ 
+    n "c3(2,9)",
+    n "{ds3*8 d3}",
+    n "f3(3,8)" 
+] # s "midi" # midichan 0 
+
+d1 $ stack [ 
+    n "c3/4 . e3 gf/2",
+    n "d3(3,8)",
+    n "{ds3 d3}"
+] # s "midi" # midichan 0
+
+-- Strings
+d2 
+    $ mask "<t f>" 
+    $ arp "thumbdown pinkyup down up" 
+    $ n "<a3'min e5'min7 ~>" 
+    # s "midi"
+    # sustain "<0.5 0>"
+    # midichan 1
+
+d2 
+    -- $ every 4
+    $ mask "<t(3,8) f>"
+    $ arp "thumbdown pinkyup down up" 
+    $ n "<a3'min g5'min7 c2'maj>" 
+    <| s "midi"
+    -- # sustain "<0.5 0>"
+    # midichan 2
+
+-- Pads
+d3
+    $ chop "<2 4>" 
+    $ slow 4 
+    $ rolled 
+    $ n (off 0.125 (|- 12) $ off 0.25 (|+ 7) "<d'maj a'min7 e'min7>")
+    # sound "midi"
+    # sustain "<3 1 5>"
+    # legato "<2 4 6>"
+    # midichan 3
+
+-- Bass
+d4
+    $ slow "<2 1>"
+    $ arp "thumbdown up pinkup down"
+    $ n "<a3'min e3'min'i>"
+    # s "midi"
+    # midichan 4
+
+hush
