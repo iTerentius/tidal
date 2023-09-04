@@ -1,0 +1,68 @@
+setcps 0.5
+
+d1 
+  $ mask "<t(3,8) t(1,2) t(7,8)>" 
+  $ fast 4 
+  $ chunk "<8 4 2>" (|- note 12) 
+  $ arp "<up down>" 
+  $ n "<c'min a'maj/2>" # s "Bass_Drums" 
+  # legato 4
+  # sustain 0.5 
+  # crush (sine * 4)
+  # gain 0.7
+
+d1 silence
+  
+d2 
+  $ mask "<t f(3,8)>" 
+  $ fastGap "2" 
+  $ "Bass_Drums*3" 
+  # n "20" 
+  # gain 0.8
+
+d2 silence
+
+d3 
+  $ jux rev
+  $ fast "<2 4>"
+  $ s "Hats*3" 
+  # squiz (saw * "<3 4 10>")
+  # gain 0.6
+
+d3 silence
+
+d4 
+  $ s "Snare_Drums" 
+  -- # n (run 100) 
+  -- # crush (sine * 10)
+
+d4 silence
+
+
+
+d5 $ slow 4 $ chop "<2, 4, 8*2>" $ arp "up down" $ n "a3'min e3'min" # s "superfm"
+  # squiz (sine * 0.5)
+  # gain 0.6
+
+d5 silence
+
+d6 $ mask "<t f>" $ arp "down pinky" $ n "<a4'min7 e4'min7 ~ >" # s "bass8"
+
+d6 silence
+
+d7 
+  $ mask "t(3,8) f" 
+  $ chop "<2 4 6 8>"
+  $ jux rev 
+  $ s "roll_door_2:5" 
+
+d7 silence
+
+d9 $ mask "t(5,8)" $ slow 2 $ s "[readorb:0, readorb:1, readorb:2, readorb:3]"
+  # delay 1
+  # delaytime sine
+  # crush sine
+
+  d9 silence
+
+  hush

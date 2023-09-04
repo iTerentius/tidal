@@ -1,0 +1,71 @@
+setI "cc1" $ (cI 1 "21")
+
+d1 $ slow 2  $ n "^cc1" #  s "supersaw supersquare"
+
+d1 $ sound "bd" # amp (cF 1 "21")
+
+-- d3 $ n (run 8) # s "midi"
+
+d1 $ sound "amencutup" + n (run (segment 1 $ range 1 16 $ cN 1 "48" ))
+
+d1 silence
+
+d2 $ slow (cR 1 "21") $ sound "amencutup" # room (cF 10 "22") # sz (cF 1 "23")
+
+d2 silence
+
+
+d1 $ stack [
+  sound "bd bd*2",
+  sound "hh*2 [sn perc:3] Cat-Water Hats*4"
+  -- sound "superfm" +| n (run 8*2 -12)
+ ] # speed sine*4
+
+d2 $ whenmod 5 3 (striate 3) $ stack [
+  -- sound "Bass_Drops bd*2",
+  sound "Hats*2 [sn cp] cp hoarder*4",
+  sound "Cat-Water Bass_Drums" +| n "0 .. 15"
+] # speed "[[1 0.8], [1.5 2]*2]/3"
+# amp (cF 1 "28")
+
+d1 silence
+
+d1 $ superimpose (fastGap 4) $ n (run 8) +| sound "Bass_Drops sn [cp ht] hh"
+
+d1 $ layer [rev, fast 2] $ sound "arpy [~ arpy:4]"
+
+d6
+  $
+  -- n (run 8) #
+   s (steps [("hc","x  x x  xx x  x"),("bd", "xx xx"), ("Bass_Drums", "x")])
+  # lpf (range 10 2000 (cF 1 "41") * sine)
+  # lpq (range 10 2000 (cF 1 "42") * sine)
+  # amp (range 0 1 (cF 1 "43"))
+
+d1 $ (striate 4) $ slow 2 $ s (steps [("Hats","x  x x  x x  x"),("Bass_Drums", "xx xx")])
+  # bpf (range 0 1200 $ (cF 1 "21"))
+  -- # bpf (range 0 1200 $ (slow 4 square) + sine * 2)
+  # bpq (range 0 1200 $ ( cF 1 "22"))
+  # room (cF 1 "23")
+  # sz (cF 1 "24")
+  -- # hpq (1-(cF 1 "22"))
+  -- # djf sine
+  # crush ( range 0 10 (cF 1 "25"))
+  # amp 0.2
+
+d2 $ slow 4 $ n (run 8) # s "{Bass_Drops _ _}"
+
+d5 $ slow 2 $ s "as1" # n (run 8) --2021.02.29-ndefs.scd
+
+
+d5 $ jux rev $ slow 8 $ striate (run 16) $ n (run 16)
+    +| s "hoarder"
+    -- # begin "<0.25 0.5> 0 0"
+    # amp 0.8
+    # delay (cF 1 "43")
+    # delayfb (cF 1 "44")
+    # room 0.5
+    # crush (sine * 16 * (cF 1 "44"))
+    -- # pan sine
+
+d5 silence

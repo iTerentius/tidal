@@ -1,0 +1,36 @@
+d1 
+  $ slow 4 
+  $ jux rev
+  -- $ striate' 16
+  $ s "Storm" 
+  +| n (run 8) 
+  # legato sine
+  -- # hpf (sine * (run 20))
+  -- # crush (cF 0 "21")
+  # gain 0.8
+
+d1 silence
+
+d2 $ s "{[Bass_Drums(3,8), Hats(5,8), Snare_Drums*2]}%2"
+  |+ n (run 20)
+  # gain 0.7
+
+  d2 silence
+
+d3 
+    $ mask "{t f(3,8) ~}%3"
+    $ note "-7 -3 1 -5" 
+    # s "bass8"
+    # legato 0.5
+
+d3 silence
+  
+d4 $ n "{<1 3> -7 5*2}%3" 
+  # s "test"
+  # cut 2
+  # gain 0.7
+
+d4 silence
+
+hush
+

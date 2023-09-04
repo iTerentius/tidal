@@ -1,0 +1,139 @@
+
+ d1
+ -- $ mask "t f(3,8)*2"
+  $ jux rev $ (iter 4)
+  $ slow "{8 16}%2"
+    $ chop "{128 32 16}%3"
+  $ s "{<hoarder!4 [Andreis_Bell, race_car]>}"
+  |> n "0..5"
+  |+ lpf (range 100 1800 sine)
+  # legato saw
+  # crush 4
+
+d1 silence
+
+d2 
+  -- $ slow 4
+  -- $ (iter 3)
+  $ slice 256
+  $ s "hoarder" 
+  -- # legato 2
+  -- # cut 3
+  -- # begin (irand 100)
+  -- |+j speed sine
+
+
+d2 silence
+
+-- Neutron
+d5 
+  $ jux rev
+  $ mask "t f"
+  $ s "Neutron_12" 
+  +| n "<0..7>"
+  # legato (range 0.1 3 sine)
+  # cut 2
+  # speed (slow 4 saw)
+  -- # legato (sine * 2)
+  # gain 0.8
+
+d5 silence
+
+d3 $ s "{[Bass_Drums(3,8), Snare_Drums, Hats:4(3,8)]}" # gain 0.8
+
+d5
+  $ chop 16
+  $ slice 4 10
+  $ slow "<8 16>"
+  $ s "<Cat-Water(3,8) Cat-Water!2>"
+   >| n (run 12)
+  # cut 2
+  # gain 1
+  # orbit 3
+
+d1
+  $ s "Cat-Water"
+   n (run 100)
+  # sustain 4
+  # amp 1.2
+
+d1 silence
+
+d2
+  $ s "<Bass_Drums:4(3,8) ~>"
+
+d3
+  $ s "<[Hats:5 Hats:6(3,8)]/2, [Hats:20*4 ~]>"
+
+d3 silence
+
+d3
+  $ slow 2
+  $ n (off 0.125 (|- 12)
+  $ off 0.25 (|+ "<3 4>") 
+  "[<3 5 -7 9 [3 ~ _ ~ ~]>]")
+  # sound "bass8"
+
+d4
+  $ mask "t f _"
+  $ jux rev 
+  -- $ slow 2
+  $ n (off 0.125 (|- 12)
+  $ off 0.25 (|+ "<3 5 24>") 
+  "[<3 5 -7 9 [3 ~ _ ~ ~]>]")
+  # sound "midi" # midichan 1
+  # pF "noise" (sine * 4)
+  # pF "ph" sine
+  # sustain (sine * 2)
+  -- # cut 2
+  # legato 2
+  # gain 0.7
+
+d4 silence
+
+d1
+  -- $ mask "<f t>"
+  -- $ jux rev
+  -- $ iter 4
+  $ whenmod 4 1 (chunk 4 $ (hurry 2))
+  $ off 0.25 (# hpf 1000
+  $ striate "<4 8>"
+  $ s "[Cat-Water@, AKWF_0014*16]"
+  -- # n "<1 2 3 4 5 6 7>"
+  # n (run 100)
+  # octave "<3 4>"
+  -- # speed ( perlin + 1.5)
+  -- # room 0.6 # sz 0.8
+  -- # squiz sine + 0.5
+  -- # hpf (range 100 2000 sine)
+  # gain (cF 1 "77")
+
+d1 silence
+
+d2 $ fast "<1 2>"
+  $ off 0.25 (|+ 7)
+  $ s "[Bass_Drums:4*4, Snare_Drums:4(3,8), Hats:1(5,8)]"
+  # n (irand 64)
+  # legato 4
+  -- # crush 4
+  # gain (cF 1 "78")
+
+d2 silence
+
+d3 $ qtrigger 1
+  -- $ mask "<t f f>"
+  $ off "e" (|+ 2)
+  -- $ fast 2
+  $ note "<[e@ [f f g@] df5] ~!2 >"
+  -- $ note "<[a@3 df5] [a d e@]~!2 >"
+  # s "bass8"
+  # gain (cF 1 "79")
+  # amp 0.8
+  # legato 4
+
+d3 silence
+
+d4  $ slow 2 $ struct "t@2 f t*16" $ n (irand 20) # s "roll_door_2(3,8)" # legato 4 # gain (cF 1 "80")
+  -- # speed (sine * 2)
+ 
+hush

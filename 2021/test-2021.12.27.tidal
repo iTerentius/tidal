@@ -1,0 +1,39 @@
+d1 $ cat [sound "Bass_Drums*2 Snare_Drums*4?", sound "<moog(7,8) bass8*2, t1002>"] |+ n (run 30)
+    # crush "{1 5 3 4}%3"
+    # pan sine
+    # gain 0.8
+
+d3 $ cat [sound "bd*2 sn", sound "arpy jvbass*2", sound "drum*2"] |+ n (run 100)
+
+d1 $ cat [sound "bd*2 sn", sound "jvbass*3", sound "drum*2", sound "ht mt"]
+
+d4 silence
+
+d4 
+    $ jux rev 
+    $ mask "t*2 ~" 
+    $ s "AKWF_granular*50"
+    +| n (run 44)
+    # gain 0.7
+    -- # crush 4
+
+d4 silence
+
+setcps 1
+
+d5 
+    $ mask ("f t")
+    $ jux rev 
+    $ s "hoarder(3,8)" 
+    # n (irand 20) 
+    # legato (run 5)
+    # delay 0.6
+    # room sine
+
+cps (slow 8 $ 0.5 + irand 1)
+
+hush
+
+d1 $ "t(5,16)" # s "Hats:4"
+
+d2 $ slow 2 $ n "[0 7 0 3]*4" |+ n "<5 -12>" # s "t1002"

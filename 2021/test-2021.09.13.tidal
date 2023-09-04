@@ -1,0 +1,37 @@
+d1
+  $ every 2 (jux rev)
+  $ mask "t f(3,8) t"
+  $ every 5 (chop 16)
+  $ "[Bass_Drops*4, sd(3,8), ho*4?0.8 hc*4]"
+  # legato 2
+  -- # bpf (range 100 2000 sine) # bpq (square * saw)
+  # crush (sine * 15)
+
+d4 silence
+
+d2 $ every 2 (chop "<3 4>") $ every "<2 3 4>" (jux rev) $ s "Bass_Drums(3,8)" # n (run 20)
+    # squiz (sine * square)
+
+d2
+  $ every 3 (jux rev)
+  $ mask "<f(3,8)>"
+  $ struct "t t f [t ~]"
+  $ striate "<4 16 32 128>"
+  $ s "<race_car hoarder!>"
+  # squiz (sine * 4)
+  -- # speed (sine * 2 * square)
+  # legato (sine + 3)
+
+d2 silence
+
+d3 $ chunk 4 (# crush "<3 10>") $ iter 2 $ n "<3! -5 -7! 2>*4" # s "t1002"
+
+d3 silence
+
+d4 $ fastGap 4 $ n "<-7 -5 -7> < -3 ~*2 >" # s "bass8" # crush 3
+
+d4 silence
+
+hush
+
+panic

@@ -1,0 +1,60 @@
+let cx1 = (cF 1 "49")
+
+d1
+  -- $ every 8 (jux rev)
+  $ mask "[<t(3,8) ~ >]"
+  $ every 4 (chop "<4 8 16 32>")
+  -- $ slow "~ <1 2 3 4>"
+  $ n (run 100)
+  -- $ superimpose (fast 2)
+  -- $ iter 16
+  -- $ every 3 legato (range 1 5 isaw)
+  -- $ s "[Bass_Drops?, Bass_Drums*4?, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
+  # "[Bass_Drops?, Bass_Drums*4?, sd(3,8)?, Cat-Water*4?0.8 Cat-Water:100*4]"
+  -- +| n (run "<100 50>")
+  -- # note ("0 4 5 7")
+  -- # bpf (range 100 2000 sine) # bpq (range 50 1000 (square * sine))
+  # crush (sine * rand * 15)
+  -- # ring (square * saw) # ringf (range 100 500 isaw)
+  # gain 0.8
+
+d1 silence
+
+p "hats" $ every 4 (fast 4) $ s "Hats:2 Hats:4" # legato 1
+    -- # crush (sine + 2)
+
+d2
+  $ every 3 (jux rev)
+  -- $ superimpose (fast 2)
+  $ every 2 (mask "t f")
+  $ struct "t f f [t ~]" $ striate "<4 16 32 128>" $ s "race_car" # speed (sine * square) # legato (sine + 3)
+
+d2 silence
+
+d6
+  $ mask "<f(3,8), t(2,8)>"
+  -- $ slow 4
+  -- $ iter 8
+  $ off 2 (jux (chop 32))
+  $ n (scale "minor" "-7 .. -14")
+  # s "bass8"
+  -- # crush (sine * 5)
+  # gain 0.8
+
+d6 silence
+
+d4
+  $ every 4 (fast 2)
+  $ n "-12 -24 0 [5, 7]*4 -7"
+  # s "<t1002 Cat-Water>"
+  -- # squiz 5
+  # crush (square * 5)
+  -- # delay 1 # delayfb 0.8
+  -- # amp 2
+  # gain 1.1
+
+d4 silence
+
+hush
+
+panic

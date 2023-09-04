@@ -14,7 +14,7 @@ d1 silence
 
 d2 $ n "-14 _ -7" # s "superfm"
   # voice "<0 1 2 3 4 5>"
-  -- # lfofreq1 20
+  # lfofreq1 20
 
 d2 $ s "superkick" # n "0" # decay 20
 
@@ -33,15 +33,15 @@ p "hats" $ s "Hat_Loops/4"
 d4 $ fastGap "<2 4 ~ _> 1"
   -- $ iter 4
   $ s "Bass_Drums" +| n (run 8)
-  # amp 0.4
-  -- # distort "0.2 1 ~ _"
-  #orbit 1
+  # distort "0.2 1 ~ _"
+  # gain 0.9
+  -- #orbit 1
 
 d4 silence
 
 d2
   $ jux (striate (run 8))
-  $ slow"<2 4>" $ iter 8 $ s "Pitched_Timpanies" +| n (run 4)
+  $ slow"<2 4>" $ iter 8 $ s "AKWF_overtone" +| n (run 45)
   # delay (slow 3 sine)
   # delayt 0.9
   # delayfb 0.9

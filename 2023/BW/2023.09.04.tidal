@@ -1,4 +1,4 @@
--- Bitwig
+-- Midi
 
 let kick = "c3"
 
@@ -9,7 +9,7 @@ d2 $ n "{c3(3,8), ~}*2" # s "midi" # midichan 0
 
 d3 $ fast 2 $ n "{0 3 [4 7] 9 11 -7}%3" # s "midi" # midichan 1
 
-d4 $ ccv (fastGap 4 "130 40 100 30 70" / (run 10)) # ccn 1 # s "midi" # midichan 0
+d4 $ ccv "130 40 100 30 70" # ccn 1 # s "midi"
 
 d1 $ n "c3*4" # s "midi" # midichan 0 # gain sine
 
@@ -17,22 +17,30 @@ d2 $ n "ds3*8" # s "midi" # midichan 0
 
 d1 silence
 
-d2 $ fast 2 $ ccv "0..127" # ccn 1 # s "midi" # midichan 0
+d2 $ ccv "0 50 70 127" # ccn 1 # s "midi" # midichan 0
 
 -- Drums
-d1 $ stack [ 
-    n "c3(2,9)",
-    n "{ds3*8 d3}",
-    n "f3(3,8)" 
-] # s "midi" # midichan 0 
+d1 
+    $ every 2 (slow "{2 4 1}")
+    $ stack [ 
+        n "d3(3,8) . f3",
+        n "{ds3(3,8) d3}",
+        n "[e3(3,8)*2, f3(7,8)]" 
+    ] # s "midi" # midichan 0 
 
-d1 $ stack [ 
-    n "c3/4 . e3 gf/2",
-    n "d3(3,8)",
-    n "{ds3 d3}"
-] # s "midi" # midichan 0
+d1
+    $ n "-24..0" # s "midi" # midichan 0
 
--- Strings
+d1 
+    $ every 4 (fast 2)
+    $ stack [ 
+        n "{c3 ds3 d3} . e4 gf/2",
+        n "{c3(3,8)}",
+        n "{es3 e3}",
+        n "[c4 d4]*4"
+    ] # s "midi" # midichan 0
+
+-- Plucked
 d2 
     $ mask "<t f>" 
     $ arp "thumbdown pinkyup down up" 
@@ -48,7 +56,7 @@ d2
     $ n "<a3'min g5'min7 c2'maj>" 
     <| s "midi"
     -- # sustain "<0.5 0>"
-    # midichan 2
+    # midichan 1
 
 -- Pads
 d3
@@ -68,5 +76,12 @@ d4
     $ n "<a3'min e3'min'i>"
     # s "midi"
     # midichan 4
+
+d4 silence
+
+d5
+    $ n "c _ _ a1"
+    # s "midi"
+    # midichan 5
 
 hush
