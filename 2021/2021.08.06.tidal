@@ -1,22 +1,24 @@
 d1
   $ jux rev
-  -- $ slow "<1 2>"
-  $ striate (run 16)
-  $ s "<roll_door_2 Field Andreis_Bell>*2" -- change samples
-  -- # speed sine
-  -- # n (run 20)
-  # cut "<3 5 2 7>"
+  $ slow "<1 2>"
+  $ mask "t f"
+  $ striate 4
+  $ s "[<Cat-Water oktoberfest>]" -- change samples
+  |+ n (run 20)
+  |> cut "<3 5 2 7>"
   # delay 1 # delayfb saw
-  # squiz (sine * 0.2)
+  # squiz (sine * 0.5)
   -- # amp "0.1 0.2 0"
+  -- # gain "{1.5 1 0.8}"
+  # gain 0.8
 
 d1 silence
 
 d2 $ n "-14 _ -7" # s "superfm"
   # voice "<0 1 2 3 4 5>"
-  # lfofreq1 20
+  -- # lfofreq1 20
 
-d2 $ s "superkick" # n "0" # decay 20
+d3 $ s "superkick" # n "0" # decay 20
 
 d2 $ fastGap ("2 1" + (run 8)) $ n "0 2 1 [3 4 5 4]/2" # s "Bass_Drums <Hats Snare_Drums>!2" # crush "<8 2>" #delay 50 # orbit 3 #amp 0.1
 
@@ -46,6 +48,7 @@ d2
   # delayt 0.9
   # delayfb 0.9
   # crush "<4 8 10 20>/2"
+  # gain 0.9
   # orbit 2
 
 d5 $ s "Bass_Drums:4*2"
