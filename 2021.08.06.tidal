@@ -1,0 +1,94 @@
+d1
+  $ jux rev
+  -- $ slow "<1 2>"
+  $ striate (run 16)
+  $ s "<roll_door_2 Field Andreis_Bell>*2" -- change samples
+  -- # speed sine
+  # n (run 20)
+  # cut "<3 5 2 7>"
+  # delay 1 # delayfb saw
+  # squiz (sine * 0.2)
+  -- # amp "0.1 0.2 0"
+  # gain 0.7
+
+d1 silence
+
+d2 $ n "-14 _"/8 # s "superfm"
+  # voice "<0 1 2 3 4 5>"
+  # lfofreq1 20
+  # ratio1
+
+d2 
+    $ s "Distorted_BDs*16" 
+    # n (run 20)
+
+d2 $ fastGap ("2 1" + (run 8)) $ n "0 2 1 [3 4 5 4]/2" # s "Bass_Drums <Hats Snare_Drums>!2" # crush "<8 2>" #delay 50 # orbit 3 #amp 0.1
+
+d2 silence
+
+--
+d3 $ slowcat [s "Snare_Drums(3,)", s "Hats(3,5) latibro:4", s "~"]
+  # n "{1 2 <3 4> ~}"
+
+d3 silence
+
+p "hats" $ s "Hats:3/4"
+
+d4 $ fastGap "<2 4 ~ _> 1"
+  $ iter 4
+  $ s "Hats" +| n (run 8)
+  # gain 0.75
+  -- # distort "0.2 1 ~ _"
+  #orbit 1
+
+d4 silence
+
+d5
+  $ jux rev 
+  $ striate 3
+  $ iter 3 
+  $ slow "<2 4>" 
+  $ s "Pitched_Timpanies"
+  # n (run 20)
+  # delay (slow 3 (sine))
+  # delayt 0.9
+  # delayfb 0.9
+  -- # crush "<4 8 10 20>"
+  # gain 0.8
+  -- # orbit 2
+
+d6 $ s "Bass_Drums:4*2"
+
+hush
+
+let nts = "-12!3 <-7 -4>"
+in
+d1
+  -- $ every 2 (mask "f")
+  $ slow 1 
+  -- $ note "-12!3 -7 -5"
+  $ note nts
+  # s "bass8!3"
+  -- |> n "[-12 -7 -5]"
+  -- # cut 1
+
+d1 silence
+
+d2
+  $ "Bass_Drums:4*4"
+
+d3
+  $ "<Hats(3,4) Hats(7,8)>"
+  # n (run 100)
+
+d4
+  $ s "SFX" # n (run 100)
+  # speed (slow 2 $ range 0.5 "<2 4(3,8)>" saw)
+  # ring 0.5 #ringf (cat [square, sine] * 500) 
+  # att 1 # rel 2
+  # gain 0.9
+
+d4
+  $ s "Percs*16" # n (run 100)
+
+  d5 silence

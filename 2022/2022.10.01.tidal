@@ -1,6 +1,7 @@
 let kick_mult = 10
 
-d1 $ s "Bass_Drums(5,8)" |+ n (run 10)
+d1 
+  $ s "Bass_Drums(5,8)" # n (run 10)
   # speed (slow 2 $ range 0.5 "<2 4(3,8)>" saw)
   # ring 0.5 #ringf (cat [square, sine] * 500) 
   # att 1 # rel 2
@@ -8,19 +9,31 @@ d1 $ s "Bass_Drums(5,8)" |+ n (run 10)
 
 d1 silence
 
-d2 $ "Hats" |* n (run 10)
+p "cat-water" 
+  -- $ mask "<t(3,8) f(5,8)>"
+  $ jux rev
+  $ "Cat-Water" 
+  |+| n (run 100)
+  # speed sine
   # pan sine
+  # cut 1
   # dry 1 # room 0.8 # sz 0.8
-  # crush 8 
-  -- # delay 0.5 
-  -- # delaytime 1 
-  -- # delayfeedback 0.8
+  -- |+ crush saw 
+  # delay 0.5 
+  # delaytime 1 
+  # delayfeedback 0.8
+  # gain 0.6
+  # orbit 0
 
-d2 silence
+p "cat-water" silence
 
-d3 $ chop 2 $ mask "{t f(3,8)}%3" $ s "<Andreis_Bell:2 ~ roll_door_2:5>" |+| n (run 8)
+d3 $ chop 2 
+  $ mask "{t f(3,8)}%3" 
+  $ s "{Andreis_Bell:2 ~ roll_door_2:5}%7" 
+  |+| n (run 8)
   # legato (sine * 10)
   # ring 0.5 #ringf (cat [square, sine] * 100)
+  # gain 0.8
 
 d3 silence
 
@@ -28,3 +41,4 @@ hush
 
 
 panic 
+

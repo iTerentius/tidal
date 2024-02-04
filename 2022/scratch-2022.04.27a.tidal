@@ -48,4 +48,29 @@ d3
 hush
 
 d1
-  $ n "[7 0 5 0]*4" |+ n "<0.5 -2 3>*8" |+ s "test bass8"
+  $ n "[7 0 5 0]*4" 
+  |+ n "<0.5 -2 3>*8" 
+  |+ s "bass8"
+  # cut 1
+  # sustain 4
+  -- # smear 1
+  -- # real 0.5 
+  -- # enhance 2
+  -- # imag 0.8
+
+d1 silence
+
+d2 
+  $ chop 8
+  $ every 4 (iter 3)
+  $ s "Field:3"
+  -- # begin (sine * 0.5)
+  # n (irand 20) 
+  -- # vowel "<i a o>"  
+  # djf (cF 0.5 "55")
+  # cut 1
+  # gain 0.9
+  # hpf (isaw * 100)
+
+d2 silence
+

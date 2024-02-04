@@ -1,0 +1,24 @@
+d6
+    $ every 4 (mask "t(3,8)")
+    $ stack
+    [
+        (   fast 4 
+            $ n "0 -3 -5 7"
+            # s "bass8"
+        ),
+        s "Hats(3,8)",
+        s "Bass_Drums(7,8)"
+    ]
+    # squiz 5
+
+d6 silence
+
+
+d1 $ seqPLoop [(0, 2, fast "1 2 3 4" $ sound "lt mt ht ~"),
+               (1, 3, sound "clap:4(3,8)" # speed 2)
+               (5, 6, sound "[kick:5(5,8), snare:3(7,16,3)]")
+              ]
+
+
+
+hush

@@ -1,27 +1,45 @@
 
-d7 
-  $ s "[readorb:0, readorb:2, readorb:1, readorb:3 readorb:4]"
+p "fx-verb"
+  $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
+  -- $ mask "t(3,8)"
   # room (cF 0.5 "13") 
-  #sz (cF 0.5 "29")
-  # gain (cF 0.5 "82")
-  -- # orbit 10
+  # sz (cF 0.5 "29")
+  # gain (cF 0.5 "78")
+  # orbit 6
 
-d7 silence
+p "fx-verb" silence
 
-d8
-  $ jux rev
-  $ s "[readorb:0, readorb:2, readorb:3, readorb:4]"
+p "fx-dist"
+  -- $ mask "f(2,9)"
+  -- $ jux rev
+  $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
   # delay 0.5 # delayfb 0.8 # delayt (sine * 2)
-  # crush (cF 1 "19")
+  -- # crush (cF 1 "19")
   # squiz (cF 20 "35")
   # gain (cF 0.5 "83")
-  -- # orbit 9
+  # orbit 7                                                                                                                                                                                                                                      
 
-d8 silence
+p "fx-dist" silence
 
-d9 $ slow 2 $ chop 8 $ s "[readorb:1, readorb:6, readorb:7]"
+-- d9 $ slow 2 $ chop 8 $ s "[readorb:1, readorb:6, readorb:7]"
 
-d10 $ mask "f t" $ s "[readorb:2]"
+d1 $ "bd*4"
+
+p "smear"
+  $ jux rev
+  $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
+  # smear (cF 0.3 "20")
+  # real (cF 0 "36")
+  # enhance 0.5
+  # imag (cF 0 "56")
+  # gain (cF 0 "84")
+  # orbit 8
+
+p "smear" silence
+
+p "mask" $ mask "f t" $ s "[readorb:8]"
+
+d10 silence
 
 hush
   

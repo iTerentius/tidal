@@ -1,62 +1,79 @@
-d1
-    $ s "Bass_Drums*4"
-    # n (run 10)
+p "bd1"
+    $ s "{Bass_Drums}%8"
+    # n (run 12)
     -- # ring 0.5
     -- # ringf sine
     -- # ringdf tri
-    # gain 0.9
-
-d2
-    $ slow 2
-    $ s "[Hats]*2"
-    |+ n (rand 100)
-    # ring sine
-    # ringf tri
-    # delay sine
-    # delaytime sine
-    # lock "3 4 5 6"
     # gain 0.8
+    # orbit 4
 
-d3
+p "bd1" silence
+
+p "hh1"
+    $ s "Hats(3,8)"
+    -- # n (irand 100)
+    -- # ring 3
+    -- # ringf tri
+    -- # delay sine
+    -- # delaytime (saw * 2)
+    -- # lock "3 4 5 6"
+    # gain 0.8
+    # orbit 3
+
+p "hh1" silence
+
+p "key1"
     $ arp "up thumbdown"
-    $ n "c'maj a'min e'maj"
-    # s "t1002(3,8)" 
+    $ 0.25 ~> (n "c'maj a'min e'maj")
+    # s "{test(7,8)}%9"
+    -- # lpf 500 
     # sustain 2
-    # cut 3
+    -- # cut 3
     # legato 2
+    # gain 0.7
+    # orbit 1
+    
 
-
+p "key1" silence
 
 hush
 
-d3 $ sound "Bass_Drums*4" # vowel "a o e e" 
+p "bd2"
+    $ jux rev
+    $ {- 0.25 ~>  -}(sound "{Bass_Drums*4}%3")
+    # vowel "a o e e a_"
+    # gain 0.8
+
+p "bd2" silence
 
 d4 
     $ jux rev
     $ palindrome 
     $ vowel "[a o u ~ i]" 
-    # s "midi" # midichan 1
-    # n "[0 3 5]"
-    -- # n (run 10) 
-    -- # s "t1002" 
-    -- # speed 0.5 
+    -- # s "bass8"
+    +| n (scale "minPent" "[1 -3 -5 7]")
+    # n (run 10) 
+    # s "t1002" 
+    # speed 0.5 
 -- # n (run 100)
-    -- # room 0.5 # sz 0.3
+    # room 0.5 # sz 0.3
     # sustain sine
-    # gain 0.85
+    # gain 0.6
     # delay 0.25
 
 d4 silence
 
 d5
     $ slow 2
-    $ arp "{pinkyup thumbdown}%3"
-    $ n "<c'maj a2'min e3'maj, f2'maj>" 
+    $ arp "pinkyup thumbdown up"
+    $ n "<a4'min c'maj e3'min f3'maj>" 
     # s "bass8"
-    # gain 2 
+    # gain 0.9
 
 d5 silence
 
     # sustain 1
 
     setcps sine
+
+    hush

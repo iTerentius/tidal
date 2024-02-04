@@ -1,0 +1,89 @@
+-- SHIFTING TIME
+
+-- Lets start with a rhythm:
+d1 $ n "[0 [1 0] 6*2 [3 4*2], 8(5,8)]" # sound "cpu2"
+
+-- That's repeating nicely. Keep it running, then run this:
+d1 $ 0.25 <~ (n "[0 [1 0] 6*2 [3 4*2], 8(5,8)]" # sound "cpu2")
+
+-- If you switch between them, you can hear the pattern is shifting in
+-- time. The `0.25` means it's shifting by a quarter of a cycle.
+
+-- You only hear any difference between them at the point where you
+-- switch to the other one. You're jumping forward / backward in time,
+-- but once you're there, nothing has changed. (!)
+
+-- Ok, time travel is difficult to talk about.
+
+-- Lets visualise this, compare these two:
+drawLine "a b c d"
+
+drawLine $ 0.25 <~ "a b c d"
+
+-- You can see the a b c d sequence is the same, but in the latter
+-- case, the cycle begins on the 'b'.
+
+-- So '<~' has moved us _forward_ into the future. So shouldn't it be
+-- '~>', rather than '<~'?? Well, we might have moved into the future,
+-- but it's all relative - from the perspective of the pattern, it's
+-- moved backwards into the past. Furthermore, while we like to think
+-- about us moving forwards into the future, from the perspective of
+-- the future, it's moving backwards into the past. Furthermore
+-- different human cultures think about time in different ways.
+
+-- Anyway, '~>' does indeed exist, compare these two:
+
+drawLine $ 0.25 <~ "a b c d"
+
+drawLine $ 0.25 ~> "a b c d"
+
+-- Time is most interesting if you keep jumping around
+-- For example jump every 3 cycles:
+d1 $ every 3 (0.25 <~) $ n "[0 [1 0] 6*2 [3 4*2], 8(5,8)]" # sound "cpu2"
+  # crush 4
+
+-- Jumping in the other direction has quite a different feel:
+d1 $ every 3 (0.25 ~>) $ n "[0 [1 0] 6*2 [3 4*2], 8(5,8)]" # sound "cpu2"
+  # crush 4
+
+-- You can also use a pattern for the time shift amount:
+d1 $ "<0 0.25 0.75>" ~>
+  (n "[0 [1 0] 6*2 [3 4*2], 8(5,8)]" # sound "cpu2" # crush 4)
+
+-- Even with this straightforward shifting, things quickly start
+-- sounding 'random', until your ears lock on to the longer loop..
+
+-- SIDETRACK - a note on syntax..
+
+-- Unfortunately this use of the dollar *doesn't work*:
+d1 $ "<0 0.25 0.75>" ~> $ n "[0 [1 0] 6*2 [3 4*2], 8(5,8)]"
+  # sound "Neutron_12" # crush 4
+
+-- This is because like all operators, you can't use a dollar to group
+-- together a pattern to send to `~>` in this way. haskell gets
+-- confused about seeing two operators ('$' and '~>') next to each
+-- other.
+
+-- So you have to use parenthesis:
+d1 $ "<0 0.25 0.75>" ~> (n "[0 [1 0] 6*2 [3 4*2], 8(5,8)]"
+  # sound "cpu2" # crush 4)
+
+-- Or another way around this is to wrap the *operator* in
+-- parenthesis, then you can use it like a normal function:
+d1 $ (~>) "<0 0.25 0.75>" $ n "[0 [1 0] 6*2 [3 4*2], 8(5,8)]"
+  # sound "cpu2" # crush 4
+
+-- Or wrap the first input and the operator in parenthesis:
+d1 $ ("<0 0.25 0.75>" ~>) $ n "[0 [1 0] 6*2 [3 4*2], 8(5,8)]"
+  # sound "cpu2" # crush 4
+
+-- This all works nicely with chopped-up loops:
+d1 
+    $ jux rev
+    $ every 2 ("<0 0.25 0.75>" ~>)
+    $ every 3 (0.25 <~) 
+    $ loopAt "{1 2 3}%5" 
+    $ chop 8 
+    $ sound "Neutron_12" 
+    |> n (run 10)
+    # speed sine

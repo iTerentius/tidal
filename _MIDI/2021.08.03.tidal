@@ -3,9 +3,9 @@
 let kick = "c3"
 
 -- 2021.08.03-midi
-d1 $ fastGap 2 $ n "[c3(3,8), <c7 c6 ~>(7,8) ~]" # s "midi" # midichan 1
+d1 $ fastGap 2 $ n "[c3(3,8), <c7 c6 ~>(7,8) ~]" # s "midi" # midichan 0
 
-d2 $ n "{c3(3,8), ~}*2" # s "midi" # midichan 0 
+d2 $ n "{c3(3,8), ~}*2" # s "midi" # midichan 1 
 
 d3 $ fast 2 $ n "{0 3 [4 7] 9 11 -7}%3" # s "midi" # midichan 1
 
