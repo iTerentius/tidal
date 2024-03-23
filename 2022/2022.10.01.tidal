@@ -10,18 +10,18 @@ d1
 d1 silence
 
 p "cat-water" 
-  -- $ mask "<t(3,8) f(5,8)>"
+  $ mask "<t(3,8) f(5,8)>"
   $ jux rev
   $ "Cat-Water" 
   |+| n (run 100)
   # speed sine
   # pan sine
   # cut 1
-  # dry 1 # room 0.8 # sz 0.8
-  -- |+ crush saw 
-  # delay 0.5 
-  # delaytime 1 
-  # delayfeedback 0.8
+  -- # dry 1 # room 0.8 # sz 0.8
+  -- -- |+ crush saw 
+  -- # delay 0.5 
+  -- # delaytime 1 
+  -- # delayfeedback 0.8
   # gain 0.6
   # orbit 0
 

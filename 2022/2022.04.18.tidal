@@ -5,6 +5,10 @@ d1
   # crush (sine * 10) 
   |- n (run 20)
 
-d2 $ iter 4 $ every 2 (mask "f(3,8)") $ n (arp "e'major7 [0,-4,-7,-11]") # s "t1002" 
+d2 
+$ iter 4 
+-- $ every 2 (mask "f(3,8)") 
+$ n (arp "e'major7 [0,-4,-7,-11]") 
+# s "t1002" 
 
 hush

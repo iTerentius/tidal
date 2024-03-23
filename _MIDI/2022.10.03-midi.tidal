@@ -1,6 +1,6 @@
 setcps 1
 
-d1 $ n "-12 -11? -9" # s "midi" # midichan 0
+d1 $ n "-12 -11? -9" # s "midi" # midichan 1
 
 d2 $ ccv "10 127 50" # ccn "30" # s "midi" # midichan 0
 

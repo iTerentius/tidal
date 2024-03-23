@@ -1,0 +1,7 @@
+setcps 0.25
+
+d1 $ n "c3*4" # s "midi" # midichan 0 # nudge 0.0712
+
+d1 $ n "c3*4" # s "midi" # midichan 0 # nudge 0.001
+
+d2 $ s "cp" # nudge -0.07

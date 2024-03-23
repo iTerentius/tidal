@@ -1,0 +1,19 @@
+d1 
+    $ jux rev
+    $ struct "1101"
+    $ stutWith 3 (0.125*3) (|* lpf 0.7) . (|* begin 0.2)
+    $ chop "{16 32 128}"
+    $ s "Cat-Water"
+    # n (run 100)
+    # gain 1.2
+    # lpf 10000
+    # begin sine
+    -- # speed 1
+    # cut "{1 2 4}"
+
+    hush
+
+d1
+    $ s "cp*4"
+
+    setcps 1
