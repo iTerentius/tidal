@@ -21,37 +21,50 @@ d1 silence
 
 d2 $ fast 2 $ ccv "0..127" # ccn 1 # s "midi" # midichan 0
 
--- Drums
-d1 $ stack [ 
-    n "c3(2,9)" # s "midi" # midichan 0,
-    n "{fs3*4 d3}" # s "midi" # midichan 0,
-    n "f3(3,8)" # s "midi" # midichan 0 
-]
+-- Drums channel 0
+d1 
+    $ stack [ 
+        n "c3(2,9)" # s "midi" # midichan 0,
+        n "{fs3*2 d3}" # s "midi" # midichan 0,
+        n "f3(3,8)" # s "midi" # midichan 0
+    ]
 
-d1 $ stack [ 
-    n "c3/4 . e3 gf/2",
-    n "fs3(3,8)",
-    n "{cs3 d3}"
-] # s "midi" # midichan 0
+d1 
+    $ stack [ 
+        n "{c3(3,8) c3*2}" # s "midi" # midichan 0,
+        n "{fs3*4 d3}%2" # s "midi" # midichan 0,
+        n "f3(5,8)" # s "midi" # midichan 0
+    ]
 
--- Strings
+d1
+    $ stack [
+        n "c3" # s "midi" # midichan 0,
+        n "bs3*2" # s "midi" # midichan 0
+    ]
+
+
+-- Bass
 d2 
+    $ fast 2
     $ mask "<t f>" 
     $ arp "thumbdown pinkyup down up" 
     $ n "<a3'min e5'min7 ~>" 
     # s "midi"
-    # sustain "<0.5 0>"
-    # midichan 1
+    -- # sustain "<0.5 0>"
+    # midichan 3
 
 
 d2 
     -- $ every 4
-    $ mask "<t(3,8) f>"
+    -- $ mask "<t(3,8) f>"
     $ arp "thumbdown pinkyup down up" 
-    $ n "<a3'min g5'min7 c2'maj>" 
-    <| s "midi"
+    $ n "<a4'min g5'min7 c3'maj>" 
+    # s "midi"
     -- # sustain "<0.5 0>"
-    # midichan 2
+    # gain 1.2
+    # midichan 3
+
+d2 silence
 
 -- Pads
 d3
@@ -59,8 +72,10 @@ d3
   $ slow 4 
   $ rolled 
   $ n (off 0.125 (|- 12) $ off 0.25 (|+ 7) "<d'maj a'min7 e'min7>")
-  # sound "midi" # midichan 3
+  # sound "midi" # midichan 2
   # sustain "<3 1 5>"
-  # legato "<2 4 6>"
+  # legato "<2 4 6?>"
+
+  d3 silence
 
 hush

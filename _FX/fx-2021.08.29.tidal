@@ -1,13 +1,24 @@
+setcps saw * square
 
 p "fx-verb"
   $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
   -- $ mask "t(3,8)"
-  # room (cF 0.5 "13") 
-  # sz (cF 0.5 "29")
-  # gain (cF 0.5 "78")
+  # room (cF 0.9 "13") 
+  # sz (cF 0.9 "29")
+  # gain (cF 1 "78")
   # orbit 6
 
 p "fx-verb" silence
+
+p "fx-delay"
+  $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
+  -- $ mask "t(3,8)"
+  # delay (cF 0.5 "16") 
+  # sz (cF 0.5 "32")
+  # gain (cF 1 "80")
+  # orbit 6
+
+p "fx-delay" silence
 
 p "fx-dist"
   -- $ mask "f(2,9)"
@@ -16,7 +27,7 @@ p "fx-dist"
   -- # delay 0.5 # delayfb 0.8 # delayt (sine * 2)
   -- # crush (cF 1 "19")
   # squiz (cF 20 "35")
-  # gain (cF 0.5 "83")
+  # gain (cF 1 "83")
   # orbit 7                                                                                                                                                                                                                                      
 
 p "fx-dist" silence
@@ -27,12 +38,13 @@ d1 $ "bd*4"
 
 p "smear"
   $ jux rev
+  $ mask "t f(3,8)"
   $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
   # smear (cF 0.3 "20")
-  # real (cF 0 "36")
+  # real (cF 0.2 "36")
   # enhance 0.5
-  # imag (cF 0 "56")
-  # gain (cF 0 "84")
+  # imag (cF 0.5 "56")
+  # gain (cF 0.5 "84")
   # orbit 8
 
 p "smear" silence

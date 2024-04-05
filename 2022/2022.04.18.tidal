@@ -5,10 +5,15 @@ d1
   # crush (sine * 10) 
   |- n (run 20)
 
+d1 silence
+
 d2 
-$ iter 4 
--- $ every 2 (mask "f(3,8)") 
-$ n (arp "e'major7 [0,-4,-7,-11]") 
-# s "t1002" 
+  -- $ iter 4 
+  -- $ every 2 (mask "f(3,8)") 
+  $ struct "1101"
+  -- $ n (scale "minPent" "0..7")
+  $ arp "up thumdown pinkyup" $ n "e3'maj7 a'min c4'maj"
+  -- $ n "0 3 5 -7"
+  # s "t1002" 
 
 hush

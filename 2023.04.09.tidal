@@ -3,16 +3,17 @@ let pat1 = (scale "minPent" "{-12..0}%7 {-12..0}%9 {-12..0}%3")
 let pat2 = (scale "minPent" "{-12..0}%5 {-12..0}%3 {-12..0}%3")
 let pat3 = (scale "minPent" "{-12 3 -5 7}")
 p "synth1"
-  $ jux rev
+  $slow 4
+  -- $ jux rev
   $ mask "[t(3,8), t(7,16)]"
   $ fast 2
   $ s "superfm*16"
   -- # sustain 1
-  # note pat2
-  -- # voice "<0 5>"
-  # lfofreq 0.5
+  # note pat1
+  # voice "<0 5>"
+  # lfofreq 1
   -- # lfodepth 0.1
-  # ratio1 1
+  # ratio1 0.5
   # ratio2 2
   # ratio3 3
   # mod11 0.5
@@ -23,8 +24,9 @@ p "synth1"
   # egrate12 0.5
   # egrate13 0
   # feedback 3
-  # gain 0.7
+  # gain 0.6
   # room 0.8 # size 0.8 # dry 0.2
+  # pan sine
   -- # delay 1 # delaytime 2 # delayfeedback 1
 
 d1 $ seqP [

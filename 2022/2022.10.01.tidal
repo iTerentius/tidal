@@ -13,9 +13,9 @@ p "cat-water"
   $ mask "<t(3,8) f(5,8)>"
   $ jux rev
   $ "Cat-Water" 
-  |+| n (run 100)
+  + n (run 100)
   # speed sine
-  # pan sine
+  -- # pan sine
   # cut 1
   -- # dry 1 # room 0.8 # sz 0.8
   -- -- |+ crush saw 
@@ -23,13 +23,13 @@ p "cat-water"
   -- # delaytime 1 
   -- # delayfeedback 0.8
   # gain 0.6
-  # orbit 0
+  # orbit 1
 
 p "cat-water" silence
 
 d3 $ chop 2 
   $ mask "{t f(3,8)}%3" 
-  $ s "{Andreis_Bell:2 ~ roll_door_2:5}%7" 
+  $ s "{Andreis_Bell:2 ~ roll_door_2:5}" 
   |+| n (run 8)
   # legato (sine * 10)
   # ring 0.5 #ringf (cat [square, sine] * 100)

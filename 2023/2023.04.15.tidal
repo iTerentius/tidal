@@ -126,12 +126,12 @@ d2 silence
 
 d3 $ qtrigger 1
   -- $ mask "<t f f>"
-  $ off "e" (|+ 2)
+  -- $ off "e" (|+ 2)
   -- $ fast 2
   $ note "<[e@ [f f g@] df5] ~!2 >"
   -- $ note "<[a@3 df5] [a d e@]~!2 >"
   # s "bass8"
-  # gain (cF 1 "79")
+  -- # gain (cF 1 "79")
   -- # amp 0.8
   # legato 4
 

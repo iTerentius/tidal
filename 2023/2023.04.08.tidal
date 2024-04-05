@@ -1,31 +1,33 @@
 d1
   -- $ slow "{2 4}%4"
-  $ s "<superfm*32 superfm*16>"
-    -- # (off 0.25 (|+ 5) 
-    -- $ off 0.125 (|- 7)
+  $ s "<superfm*8 superfm*16>"
+    # (off 0.25 (|+ 5) 
+    $ off 0.125 (|- 7)
     -- (scale "minPent" "{-12..0}%5"))
-  # n (scale "minPent" "{-12..0}%5 -12_ {-12..0}%3 ~ -3")
+  (scale "minPent" "{-12..0}%5 -12_ {-12..0}%3 ~ -3"))
   # lfofreq 0.2
-  -- # lfodepth "<10 5>"
-  # ratio1 1
-  # ratio2 1
-  # ratio3 2
-  # mod11 0.2
+  -- # lfodepth 0.5
+  # ratio1 0.8
+  # ratio2 saw
+  # ratio3 sine
+  -- # mod11 0.2
   # mod12 0.5
-  # mod42 3
-  # mod14 2
-  # eglevel11 0.75
-  # egrate11 2
-  # eglevel12 1.1
-  # feedback 3
+  -- # mod42 0.5
+  # mod14 0.75
+  -- # eglevel11 0.75
+  # egrate11 0.25
+  -- # eglevel12 1.25
+  # feedback 0.5
   # room 0.8 # size 0.8 # dry 0.2
-  # gain 0.6
+  # gain 0.7
 
 d1 silence
 
+d1 $ s "superfm*8"
+
 d2
   $ s "Hats*2(3,8)"
-  -- # n "{5..10}%5"
+  # n "{5..10}%5"
   # gain 0.8
   
 d2 silence
@@ -34,8 +36,8 @@ d3
   $ fast 2
   -- $ mask "t(3,8) f(5,7)"
   $ s "Bass_Drums:5*2"
-  # speed (sine /0.5)
-  -- # n "{1..5}%5"
+  -- # speed (sine /0.5)
+  # n "{1..5}%5"
 
 d3 silence
 
@@ -43,13 +45,20 @@ do
   let sampn = 5
 
 d4
-  $ mask "f t(3,8)"
-  $ jux rev
-  $ chop "<2 4 6 8>" 
-  $ s "<roll_door_2 race_car>" 
-  +| n "0..10"
-  # sustain 0.8
+  -- $ mask "f t(7,8)"
+  -- $ jux rev
+  $ chop 48
+  -- $ struct "t f(5,8)"
+  $ s "roll_door_2*4" 
+  |+ n (range 0 32 rand)
+  -- # begin (sine)
+  # sustain "<1 2>"
+  -- # gain 0.
+  # cut "<2 4>"
+  # orbit 3
 
 d4 silence
+
+hush
 
 

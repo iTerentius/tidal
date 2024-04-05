@@ -1,15 +1,17 @@
 d1 
-    $ jux rev
-    $ struct "1101"
-    $ stutWith 3 (0.125*3) (|* lpf 0.7) . (|* begin 0.2)
+    -- $ jux rev
+    $ every 3 (slow 4)
+    $ struct "f(2,9)"
+    -- $ stutWith 3 (0.125*3) (|* lpf 0.7) . (|* begin 0.2)
     $ chop "{16 32 128}"
-    $ s "Cat-Water"
-    # n (run 100)
-    # gain 1.2
-    # lpf 10000
-    # begin sine
-    -- # speed 1
+    $ s "Neutron_12"
+    # n "0..30"
+    -- # lpf (range 500 1000 sine)
+    -- # begin sine
+    # speed 0.8
     # cut "{1 2 4}"
+    # gain 0.9
+    # orbit 3
 
     hush
 
@@ -17,3 +19,7 @@ d1
     $ s "cp*4"
 
     setcps 1
+
+d1 silence
+
+setcps 0.25
