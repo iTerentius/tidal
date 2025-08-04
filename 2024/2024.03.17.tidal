@@ -15,8 +15,10 @@ d1
 
     hush
 
-d1
-    $ s "cp*4"
+d3
+    $ s "hoarder:7/2"
+    -- # begin (range 0 1 rand)
+    # cut 1
 
     setcps 1
 

@@ -22,6 +22,8 @@ d2
     $ s "Distorted_BDs*16" 
     # n (run 20)
 
+d2 silence
+
 d2 $ 
   $ mask "1 2 3 4"
   fast ("2 1" + (run 8)) 

@@ -8,9 +8,9 @@ d1
 d1 silence
 
 d2 
-  -- $ iter 4 
-  -- $ every 2 (mask "f(3,8)") 
-  $ struct "1101"
+  $ iter 4 
+  $ every 2 (mask "f(3,8)") 
+  $ struct "001101"
   -- $ n (scale "minPent" "0..7")
   $ arp "up thumdown pinkyup" $ n "e3'maj7 a'min c4'maj"
   -- $ n "0 3 5 -7"

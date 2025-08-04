@@ -1,7 +1,7 @@
 setcps saw * square
 
 p "fx-verb"
-  $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
+  $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4, readorb:8]"
   -- $ mask "t(3,8)"
   # room (cF 0.9 "13") 
   # sz (cF 0.9 "29")

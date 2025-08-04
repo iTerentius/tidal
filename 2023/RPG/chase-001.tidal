@@ -11,7 +11,7 @@ p "bd1" silence
 
 p "hh1"
     $ s "Hats(2,8)"
-    # n (irand 100)
+    # n (run 100)
     # ring 3
     # ringf tri
     -- # delay sine

@@ -1,4 +1,4 @@
-d1
+p "synth1"
   -- $ slow "{2 4}%4"
   $ s "<superfm*8 superfm*16>"
     # (off 0.25 (|+ 5) 
@@ -17,9 +17,12 @@ d1
   -- # eglevel11 0.75
   # egrate11 0.25
   -- # eglevel12 1.25
-  # feedback 0.5
-  # room 0.8 # size 0.8 # dry 0.2
-  # gain 0.7
+  -- # feedback 0.5
+  -- # room 0.8 # size 0.8 # dry 0.2
+  # gain 0.8
+  # orbit 2
+
+p "synth1" silence
 
 d1 silence
 
@@ -35,9 +38,11 @@ d2 silence
 d3
   $ fast 2
   -- $ mask "t(3,8) f(5,7)"
+  $ struct "t(3,8)"
   $ s "Bass_Drums:5*2"
   -- # speed (sine /0.5)
-  # n "{1..5}%5"
+  |+ n "{1..10}%7"
+  # gain 0.9
 
 d3 silence
 
@@ -47,10 +52,12 @@ do
 d4
   -- $ mask "f t(7,8)"
   -- $ jux rev
-  $ chop 48
-  -- $ struct "t f(5,8)"
-  $ s "roll_door_2*4" 
-  |+ n (range 0 32 rand)
+  $ slow (range 2 4 sine)
+  $ chop 32
+  -- $ struct "{t f}"
+  $ s "roll_door_2"
+  |+ n (run 100) 
+  -- |> n (range 12 100 sine)
   -- # begin (sine)
   # sustain "<1 2>"
   -- # gain 0.
