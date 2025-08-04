@@ -1,3 +1,25 @@
-d1 $ n "c3" # s "midi" # midichan 0
+d1 
+    $ every 2 (slow "{2 4 2}")
+    $ stack [ 
+        n "c3(3,8) . cs3",
+        n "{e4(5,8)}",
+        n "[e3(3,8)*2, gs3(5,8)]" 
+    ] # s "midi" # midichan 0 
+    -- # gain "<2 1.5>"
+
+d1 
+    $ every 2 (slow "{2 4 2}")
+    $ stack [ 
+        n "c3(5,8) . cs3",
+        -- n "{e4(5,8)}",
+        n "[e3(3,8)*2, gs3(5,8)?]" 
+    ] # s "midi" # midichan 0 
+    -- # gain "<2 1.5>"
+
+d1
+    $ stack [
+        ($ struct "t t f" # n "c3"),
+    ]
+    # s "midi" # midichan 0
 
 hush

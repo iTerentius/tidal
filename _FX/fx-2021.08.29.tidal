@@ -25,7 +25,7 @@ p "fx-dist"
   -- $ jux rev
   $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
   -- # delay 0.5 # delayfb 0.8 # delayt (sine * 2)
-  -- # crush (cF 1 "19")
+  # crush (cF 1 "19")
   # squiz (cF 20 "35")
   # gain (cF 1 "83")
   # orbit 7                                                                                                                                                                                                                                      
@@ -39,7 +39,7 @@ d1 $ "bd*4"
 p "smear"
   $ jux rev
   $ mask "t f(3,8)"
-  $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
+  $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4 readorb:5]"
   # smear (cF 0.3 "20")
   # real (cF 0.2 "36")
   # enhance 0.5
@@ -51,7 +51,7 @@ p "smear" silence
 
 p "mask" $ mask "f t" $ s "[readorb:8]"
 
-d10 silence
+p "mask" silence
 
 hush
   

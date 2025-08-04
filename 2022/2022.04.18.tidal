@@ -15,5 +15,6 @@ d2
   $ arp "up thumdown pinkyup" $ n "e3'maj7 a'min c4'maj"
   -- $ n "0 3 5 -7"
   # s "t1002" 
+  # gain 0.7
 
 hush

@@ -1,6 +1,7 @@
 let kick_mult = 10
 
 d1 
+  $ jux rev
   $ s "Bass_Drums(5,8)" # n (run 10)
   # speed (slow 2 $ range 0.5 "<2 4(3,8)>" saw)
   # ring 0.5 #ringf (cat [square, sine] * 500) 

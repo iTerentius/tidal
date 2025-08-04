@@ -50,7 +50,7 @@ hush
 d1
   $ n "[7 0 5 0]*4" 
   |+ n "<0.5 -2 3>*8" 
-  |+ s "bass8"
+  |+ s "t1002"
   # cut 1
   # sustain 4
   -- # smear 1
@@ -74,3 +74,6 @@ d2
 
 d2 silence
 
+hush
+
+d2 $ s "Hats*4"

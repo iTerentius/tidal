@@ -6,6 +6,8 @@ d5
   $ s "<Cat-Water(3,8) Cat-Water!2>"
    >| n (run 2)
   # amp 1.2
+  # delay (cF 0.5 "16")
+  # delaytime (cF 0.5 "32")
   # orbit 3
 
 d1
@@ -32,3 +34,7 @@ d4
 d4 silence
 
 d1 $ chop 8 $ stack [s "Cat-Water" >| n (run 10), s "Hats(3,8)" # n (run 20), s "Bass_Drums(5,7)"] 
+
+d1 silence
+
+panic

@@ -9,7 +9,7 @@ p "synth1"
   $ fast 2
   $ s "superfm*16"
   -- # sustain 1
-  # note pat2
+  # note pat1
   # voice "<0 5>"
   # lfofreq 1
   -- # lfodepth 0.1
@@ -29,13 +29,17 @@ p "synth1"
   # pan sine
   -- # delay 1 # delaytime 2 # delayfeedback 1
 
-d1 $ seqP [
+d1 $ qtrigger 1 $ seqP [
   (0, 12, sound "bd bd*2"),
   (4, 12, sound "hh*2 [sn cp] cp future*4"),
   (8, 12, sound (samples "arpy*8" (run 16)))
 ]
 
 p "synth1" silence
+
+d1 $ s "Bass_Drums Bass_Drums:3*2"
+
+d2 $ s "hh {sn:2}*2? hh(2,8)"
 
 d1 silence
 
