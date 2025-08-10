@@ -1,0 +1,187 @@
+-- Define the drum samples for vertices
+let vertexSounds = ["bd", "sn", "hh", "cp", "lt"] -- bass drum, snare, hi-hat, clap, low tom
+    -- Function to create a pattern from a platonic solid
+    -- solidPattern :: [Int] -> Pattern String
+    solidPattern vertices = fast 2 $ cat $ map (fastcat . map (sound . (vertexSounds !!))) (groupByIntersections vertices)
+    -- Group vertices by intersection logic (example logic: alternate overlap simulation)
+    -- groupByIntersections :: [Int] -> [[Int]]
+        groupByIntersections verts = groupBy (\x y -> (x + y) `mod` 3 == 0) verts
+    -- Define Platonic solids as vertex sequences (simple representation)
+    tetrahedron = [0, 1, 2, 3]
+    cube = [0, 1, 2, 3, 4, 5, 6, 7]
+    octahedron = [0, 1, 2, 3, 4, 5]
+    dodecahedron = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    icosahedron = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+-- Generate patterns for each solid
+d1 $ solidPattern tetrahedron
+d2 $ solidPattern cube
+d3 $ solidPattern octahedron
+d4 $ solidPattern dodecahedron
+d5 $ solidPattern icosahedron
+
+
+-- TidalCycles code
+
+-- Define rhythms based on a cube's flattened vertices
+let cubePattern = stack [
+                            "<bd [~ sn]>" -- base drum and snare, representing one set of vertices
+                            , "<[hh cp] ~>" -- hi-hats and claps for another set of vertices
+                            , "arpy*2"      -- arpeggios for edge intersections
+                            ]
+
+-- Flattened edges create variations in structure
+let edgePattern = "<[bd hh sn] [cp arpy bd]>"
+
+-- Combine the patterns
+d1 $ fast 2 $ every 3 (rev) $ cubePattern
+  # sound edgePattern
+  # speed "1 0.75 1.5"
+  # gain "1.2"
+
+
+  -- TidalCycles code inspired by a dodecahedron's vertices and edges
+
+-- Define rhythms for the vertices (grouped by adjacency in a flattened dodecahedron)
+let dodecaVertices = stack [
+                            "bd(3,8)",   -- Group 1 of vertices
+                            "sn [~ cp]", -- Group 2
+                            "arpy*2",    -- Group 3
+                            "hh(5,8)",   -- Group 4
+                            "cp*3"       -- Group 5
+                            ]
+
+-- Define edge patterns (simulating connections between vertices)
+let dodecaEdges = "<[bd sn hh] [arpy cp]>"
+
+-- Combine the vertex and edge rhythms
+d1 $ fast 2 $ every 4 (rev) $ dodecaVertices
+  # sound dodecaEdges
+  # speed "1 0.8 1.2 0.9"
+  # gain "1.1"
+  # pan (slow 2 $ sine)
+
+-- Add some percussive fills to represent edge intersections
+d2 $ stack [
+      "kd(4,16)",  -- Representing sharp edges
+      "[~ bd bd*2]" -- Intersections
+    ]
+  # sound "perc"
+  # room 0.4
+  # size 0.8
+  # crush 4
+
+
+In TidalCycles, we can create patterns that emulate the structure of a heptagram (a 7-pointed star) by combining rhythmic sequences that overlap and intersect. Below is a code snippet that captures the essence of vertices and overlapping lines in a heptagram-like rhythmic pattern.
+
+haskell
+Copy code
+-- Define the main heptagram rhythm using 7 vertices
+let heptagram = "t*7" -- 7 impulses to represent the vertices
+
+-- Create overlapping lines by rotating the pattern
+d1 $ stack [
+    sound "bd*7", -- Base drum for the 7 vertices
+    sound "sn*7" # n (run 7), -- Snare with 7 unique pitches
+    sound "cp*7" # n (run 7) # speed (slow 2 $ sine), -- Clap with modulated speed
+    sound "arpy" # n (irand 7) |+| speed "1.5" # cut 2 -- Overlapping arpeggios
+]
+
+-- Add some polyrhythmic overlapping lines
+d2 $ stack [
+    slow 2 $ sound "bd*7",
+    fast 3 $ sound "sn*4",
+    fast 5 $ sound "".*
+
+
+-- Heptagram
+
+-- Define the base rhythm for the 7 vertices of the heptagram
+let heptagram = "t*7" -- 7 impulses to represent vertices
+
+-- Layer the pattern with overlapping rhythmic structures
+d1 $ stack [
+    sound "bd*7",                  -- Base drum hits the 7 vertices
+    sound "sn*7" # n (run 7),      -- Snare sequence with 7 unique pitches
+    sound "cp*7" # speed "1.5",    -- Clap sound faster for overlapping effect
+    sound "arpy*7" # n (run 7)     -- Arpeggio across the 7 vertices
+]
+
+-- Introduce more complexity with polyrhythmic lines
+d2 $ stack [
+    slow 2 $ sound "bd*7",          -- Slower version of the vertices
+    fast 3 $ sound "sn*4",          -- Faster line of snares
+    fast 5 $ sound "arpy*3"         -- Another overlapping arpeggio
+]
+
+-- Add movement and variation to the pattern
+d3 $ every 3 (rev) $ fast 4 $ sound "hc*7" -- Hi-hat creating circular motion
+
+-- Heptagram {7,3}
+d1 $ stack [
+                n (run 7) # sound "bass",
+                fast 3 $ n (segment 7 $ run 7) # sound "snare",
+                slow 2 $ n (run 7) # sound "arpy" # up (run 7),
+                n "0 3 5 1 6 4 2" # sound "drum" # gain (range 0.5 1 (sine))
+            ]
+            # pan (range 0.1 0.9 $ slow 7 sine)
+            # speed "1.2"
+
+
+-- Heptagram {7,3}
+d1 $ stack [
+  n (segment 7 $ "c e g b d f a" |+ "<0 2 4 6 1 3 5>") # s "superpiano",
+  n (segment 3 $ "<c f g>" |+ "12 9 7") # s "arpy",
+  n (segment 5 $ "<e a d>" |+ "5 10 15") # s "pluck",
+  slow 2 $ n (segment 7 $ "g f e d c b a") # s "bass"
+] # speed 1.2 # gain 0.8
+
+-- Define the vertices and overlapping segments of the {7/3} heptagram
+-- Vertices are [0, 1, 2, 3, 4, 5, 6] (mod 7), skipping every 3rd
+let heptagram = [0, 3, 6, 2, 5, 1, 4] -- The order of notes to play
+
+-- Convert the vertices into a sequence of pitches or notes
+let pitches = map (\x -> (x * 2) + 60) heptagram -- Map to MIDI pitches (e.g., C4=60)
+
+pitches
+
+-- Create a rhythmic pattern based on the connections
+-- Each connection can be mapped to a step in time
+d1 $ n (scale "major" $ struct heptagram) # sound "superpiano"
+
+-- Alternatively, use the segments to define note overlaps
+d2 $ stack [
+    n "[0 3 6]" # sound "superpiano" # legato 0.8,
+    n "[6 2 5]" # sound "superpiano" # legato 0.8,
+    n "[5 1 4]" # sound "superpiano" # legato 0.8
+  ] # speed "1 0.5 1.25"
+
+
+-- Define the heptagram vertices as a cyclic structure
+let heptagram = [0, 3, 6, 2, 5, 1, 4] -- Vertices of a {7/3} heptagram
+
+-- Map vertices to note values (e.g., MIDI notes or scale degrees)
+let notes = map (\x -> x * 2) heptagram -- Scale or MIDI transformation
+
+notes
+
+
+-- Create a rhythmic pattern based on overlapping lines
+let rhythms = [1/2, 3/4, 1/3, 2/5, 1] -- Inspired by edge connections
+
+-- Combine rhythm and melody in a Tidal pattern
+d1 
+    -- $ struct rhythms 
+    $ n (scale "major" "0 3 6 2 5 1 4") 
+    # sound "superpiano"
+    # legato (slow 2 $ range 0.5 1 $ sine)
+
+-- Overlay with an arpeggiated version of the heptagram pattern
+d2 $ n (arp "up" (scale "major" "0 6 12 4 10 2 8")) # sound "arpy"
+   # speed (fast 2 $ range 0.8 1.2 $ sine)
+
+-- Add percussive elements based on vertex connections
+d3 $ sound "bd bd sn cp" # gain (range 0.6 1 $ sine)
+
+
+  hush

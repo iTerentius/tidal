@@ -1,0 +1,384 @@
+
+setcps 1
+
+resetCycles
+
+hush
+
+let 
+    key = "major"
+    notes = "0 1 2 3 4 5 6 7 6 5 4 3 2 1 0 ~"
+    notesR = "7 6 5 4 3 2 1 0 0 1 2 3 4 5 6 ~"
+    notesC = "0 2 4 6 7 6 4 2 0"
+    notesCR = "7 6 4 2 0 2 4 6 7"
+    kd = "bd"
+    hat = "hh*4"
+    pats =
+        [
+        ("c", stack [
+                        slow 4 $ n(scale key notes) # s "superfm",
+                        n "c4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("f", stack [
+                        slow 4 $ n(scale key notes + 5) # s "superfm",
+                        n "f4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("bf", stack [
+                        slow 4 $ n(scale key notes + 10) # s "superfm",
+                        n "bf4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("ef", stack [
+                        slow 4 $ n(scale key notes +3) # s "superfm",
+                        n "ef4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("af", stack [
+                        slow 4 $ n(scale key notes + 8) # s "superfm",
+                        n "af4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("df", stack [
+                        slow 4 $ n(scale key notes +1) # s "superfm",
+                        n "df4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("gf", stack [
+                        slow 4 $ n(scale key notes +6) # s "superfm",
+                        n "gf4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("b", stack [
+                        slow 4 $ n(scale key notes -1) # s "superfm",
+                        n "b4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("e", stack [
+                        slow 4 $ n(scale key notes +4) # s "superfm",
+                        n "e4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("a", stack [
+                        slow 4 $ n(scale key notes +9) # s "superfm",
+                        n "a4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("d", stack [
+                        slow 4 $ n(scale key notes +2) # s "superfm",
+                        n "d4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("g", stack [
+                        slow 4 $ n(scale key notes +7) # s "superfm",
+                        n "g4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("cR", stack [
+                        slow 4 $ n(scale key notesR) # s "superfm",
+                        n "c4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("fR", stack [
+                        slow 4 $ n(scale key notesR + 5) # s "superfm",
+                        n "f4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("bfR", stack [
+                        slow 4 $ n(scale key notesR + 10) # s "superfm",
+                        n "bf4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("efR", stack [
+                        slow 4 $ n(scale key notesR +3) # s "superfm",
+                        n "ef4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("afR", stack [
+                        slow 4 $ n(scale key notesR + 8) # s "superfm",
+                        n "af4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("dfR", stack [
+                        slow 4 $ n(scale key notesR +1) # s "superfm",
+                        n "df4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("gfR", stack [
+                        slow 4 $ n(scale key notesR +6) # s "superfm",
+                        n "gf4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("bR", stack [
+                        slow 4 $ n(scale key notesR -1) # s "superfm",
+                        n "b4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("eR", stack [
+                        slow 4 $ n(scale key notesR +4) # s "superfm",
+                        n "e4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("aR", stack [
+                        slow 4 $ n(scale key notesR +9) # s "superfm",
+                        n "a4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("dR", stack [
+                        slow 4 $ n(scale key notesR +2) # s "superfm",
+                        n "d4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("gR", stack [
+                        slow 4 $ n(scale key notesR +7) # s "superfm",
+                        n "g4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        -- Chord Tones
+        ("cC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC) # s "superfm",
+                        n "c4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("fC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC + 5) # s "superfm",
+                        n "f4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("bfC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC +10) # s "superfm",
+                        n "bf4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("efC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC + 3) # s "superfm",
+                        n "ef4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("afC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC +8) # s "superfm",
+                        n "af4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("dfC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC +1) # s "superfm",
+                        n "df4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("gfC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC +6) # s "superfm",
+                        n "gf4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("bC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC -1) # s "superfm",
+                        n "b4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("eC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC +4) # s "superfm",
+                        n "e4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("aC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC +9) # s "superfm",
+                        n "a4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("dC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC +2) # s "superfm",
+                        n "d4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("gC", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesC +7) # s "superfm",
+                        n "g4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("cCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR) # s "superfm",
+                        n "c4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("fCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR +5) # s "superfm",
+                        n "f4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("bfCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR +10) # s "superfm",
+                        n "bf4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("efCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR +3) # s "superfm",
+                        n "ef4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("afCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR +8) # s "superfm",
+                        n "af4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("dfCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR +1) # s "superfm",
+                        n "df4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("gfCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR +6) # s "superfm",
+                        n "gf4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("bCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR -1) # s "superfm",
+                        n "b4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("eCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR +4) # s "superfm",
+                        n "e4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("aCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR +9) # s "superfm",
+                        n "a4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("dCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR +2) # s "superfm",
+                        n "d4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        ),
+        ("gCR", stack [
+                        slow 4 $ every 2 (fastGap 2) $ n(scale key notesCR +7) # s "superfm",
+                        n "g4'Maj7" # s "superfm" # sustain 2,
+                        sound hat,
+                        sound kd
+                    ]
+        )
+      ]
+in
+d1 $ ur 192 "c f bf ef af df gf b e a d g cR fR bfR efR afR dfR gfR bR eR aR dR gR cC fC bfC efC afC dfC gfC bC eC aC dC cCR fcR bfCR efCR afCR dfCR gfCR bCR eCR aCR dCR gCR" pats []
+
+resetCycles
+
+hush
+
+panic
+
+d1 $ slow 4 $ every 2 (fastGap 2) $ n(scale "major" "0 2 4 6 7 6 4 2 0") # "superfm"
+
+d2 
+    -- $ jux rev
+    $ mask "f(3,8)? ~?" 
+    $ slow "{8 12}%5" 
+    $ chop "48" 
+    $ s "<cyc4>" 
+    +| n(run "0..8") 
+    # cut 2 
+    # amp 1
+
+
+d1
+    -- $ struct ("[t f t(3,8)] f(3,8) ~")
+    $ chop 48
+    $ s "cyc4/2 ~"
+    |+ n (run (irand 2)) 
+    # cut 1
+    

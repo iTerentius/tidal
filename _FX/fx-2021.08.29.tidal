@@ -32,13 +32,18 @@ p "fx-dist"
 
 p "fx-dist" silence
 
--- d9 $ slow 2 $ chop 8 $ s "[readorb:1, readorb:6, readorb:7]"
+p "fx-grain"
+   $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
+   # grains 2 # grate 200 # gdur 0.5 
+   # amp 0.6 
+
+p "fx-grain" silence
 
 d1 $ "bd*4"
 
 p "smear"
   $ jux rev
-  $ mask "t f(3,8)"
+  $ mask "t f(7,8)"
   $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4 readorb:5]"
   # smear (cF 0.3 "20")
   # real (cF 0.2 "36")
