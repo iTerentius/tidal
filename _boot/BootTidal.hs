@@ -6,7 +6,7 @@ import Sound.Tidal.Context
 import System.IO (hSetEncoding, stdout, utf8)
 hSetEncoding stdout utf8
 
-tidal <- startTidal (superdirtTarget {oLatency = 0.05, oAddress = "127.0.0.1", oPort = 57120}) (defaultConfig {cVerbose = True, cFrameTimespan = 1/20, cProcessAhead = 1/10})
+tidal <- startTidal (superdirtTarget {oLatency = 0.0245, oAddress = "127.0.0.1", oPort = 57120}) (defaultConfig {cVerbose = True, cFrameTimespan = 1/20})
 
 :{
 let only = (hush >>)
@@ -27,6 +27,7 @@ let only = (hush >>)
     nudgeAll = streamNudgeAll tidal
     all = streamAll tidal
     resetCycles = streamResetCycles tidal
+    setCycle = streamSetCycle tidal
     setcps = asap . cps
     getcps = streamGetcps tidal
     getnow = streamGetnow tidal
@@ -60,10 +61,10 @@ let only = (hush >>)
     d10 = p 10 . (|< orbit 9)
     d11 = p 11 . (|< orbit 10)
     d12 = p 12 . (|< orbit 11)
-    d13 = p 13 . (|< oribit 12)
-    d14 = p 14 . (|< orbit 13)
-    d15 = p 15 . (|< orbit 14)
-    d16 = p 16 . (|< orbit 15)
+    d13 = p 13
+    d14 = p 14
+    d15 = p 15
+    d16 = p 16
 :}
 
 :{
@@ -190,8 +191,7 @@ let mod11 = pF "mod11"
     feedback = pF "feedback"
 :}
 
-:set prompt "tidal> "
+:set prompt "tidal=> "
 :set prompt-cont ""
-
 
 default (Pattern String, Integer, Double)
