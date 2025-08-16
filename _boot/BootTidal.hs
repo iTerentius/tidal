@@ -191,6 +191,27 @@ let mod11 = pF "mod11"
     feedback = pF "feedback"
 :}
 
+:{
+let asend  = pF "asend"
+    auxret  = pF "auxret"
+    auxroom = pF "auxroom"
+    auxdamp = pF "auxdamp"
+    auxrate = pF "auxrate"
+    auxdepth= pF "auxdepth"
+    auxtime = pF "auxtime"
+    auxfb   = pF "auxfb"
+    auxwow  = pF "auxwow"
+    grit = pF "grit"
+    rate = pF "rate"
+:}
+
+:{
+let orb  = pI "orb"
+    sr   = pF "sr"
+    bits = pF "bits"
+    mix  = pF "mix"   -- 0=dry, 1=wet (XFade style)
+}:
+
 :set prompt "tidal=> "
 :set prompt-cont ""
 

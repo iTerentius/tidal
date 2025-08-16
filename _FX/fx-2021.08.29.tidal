@@ -34,7 +34,7 @@ p "fx-dist" silence
 
 p "fx-grain"
    $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
-   # grains 2 # grate 200 # gdur 0.5 
+   # grains 2 # grate 2 # gdur 0.1 
    # amp 0.6 
 
 p "fx-grain" silence
@@ -52,11 +52,29 @@ p "smear"
   # gain (cF 0.5 "84")
   # orbit 8
 
+-- p "control_lane"
+--   $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4 readorb:5]"
+--   # orbit 0
+--   # ret 1
+  -- # room (slow 4 $ range 0.3 0.95 sine 1)
+  -- # damp 0.5
+
 p "smear" silence
 
 p "mask" $ mask "f t" $ s "[readorb:8]"
 
 p "mask" silence
+
+d1 $ s "[readorb:0, readorb:1, readorb:2]"
+   # orbit 6
+   # grit "<0 0.25 0.5 0.8>"
+  --  # grit 2
+   # rate "4000"
+   
+
+d1 silence
+
+
 
 hush
   
