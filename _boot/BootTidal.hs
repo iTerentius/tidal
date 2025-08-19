@@ -206,11 +206,16 @@ let asend  = pF "asend"
 :}
 
 :{
+-- Custom FX
 let orb  = pI "orb"
+    mix  = pF "mix" 
+    -- orb_bitcrush
     sr   = pF "sr"
     bits = pF "bits"
-    mix  = pF "mix"   -- 0=dry, 1=wet (XFade style)
-}:
+    -- orb_pingpong 
+    time = pF "time"
+    fb   = pF "fb"
+:}
 
 :set prompt "tidal=> "
 :set prompt-cont ""

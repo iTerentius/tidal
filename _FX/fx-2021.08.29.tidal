@@ -65,16 +65,10 @@ p "mask" $ mask "f t" $ s "[readorb:8]"
 
 p "mask" silence
 
-d1 $ s "[readorb:0, readorb:1, readorb:2]"
-   # orbit 6
-   # grit "<0 0.25 0.5 0.8>"
-  --  # grit 2
-   # rate "4000"
-   
-
 d1 silence
 
+d7 $ s "orb_pingpong" # orb "[0, 1, 2, 3, 4]" # time 0.28 # fb 0.75 # mix 1 # legato 4 # amp 1
 
-
-hush
+d8 $ s "orb_bitcrush" # orb "[0, 1, 4]" # bits 4 # mix 1 # legato 4 # amp 1
   
+hush
