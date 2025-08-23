@@ -6,7 +6,7 @@ p "fx-verb"
   # room (cF 0.9 "13") 
   # sz (cF 0.9 "29")
   # gain (cF 1 "78")
-  # orbit 6
+  # orbit 4
 
 p "fx-verb" silence
 
@@ -16,7 +16,7 @@ p "fx-delay"
   # delay (cF 0.5 "16") 
   # sz (cF 0.5 "32")
   # gain (cF 1 "80")
-  # orbit 6
+  # orbit 5
 
 p "fx-delay" silence
 
@@ -32,15 +32,6 @@ p "fx-dist"
 
 p "fx-dist" silence
 
-p "fx-grain"
-   $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4]"
-   # grains 2 # grate 2 # gdur 0.1 
-   # amp 0.6 
-
-p "fx-grain" silence
-
-d1 $ "bd*4"
-
 p "smear"
   $ jux rev
   $ mask "t f(7,8)"
@@ -52,23 +43,45 @@ p "smear"
   # gain (cF 0.5 "84")
   # orbit 8
 
--- p "control_lane"
---   $ s "[readorb:0, readorb:1, readorb:2, readorb:3 readorb:4 readorb:5]"
---   # orbit 0
---   # ret 1
-  -- # room (slow 4 $ range 0.3 0.95 sine 1)
-  -- # damp 0.5
-
 p "smear" silence
 
-p "mask" $ mask "f t" $ s "[readorb:8]"
+p "mask" $ mask "f t" $ s "[readorb:0, readorb:8, readorb:7]"
 
 p "mask" silence
 
 d1 silence
 
-d7 $ s "orb_pingpong" # orb "[0, 1, 2, 3, 4]" # time 0.28 # fb 0.75 # mix 1 # legato 4 # amp 1
+p "ping-pong" 
+  $ s "orb_pingpong"
+  # orb "[0, 1, 2, 3, 4]"
+  # time 0.28 
+  # fb 0.75 
+  # mix 1 
+  # legato 4 
+  # amp 1
+  # orbit 7
 
-d8 $ s "orb_bitcrush" # orb "[0, 1, 4]" # bits 4 # mix 1 # legato 4 # amp 1
-  
+p "ping-pong" silence
+
+
 hush
+
+p "buffer-shuffle"
+  $ slice (run 32)
+  $ s "[readorb:0, readorb:1, readorb:2, readorb:3, readorb:4]"
+  # orbit 8
+
+p "buffer-shuffle" silence
+
+p "fx_chop_bus" 
+  $ s "fx_chop_bus" 
+  # orb "[0, 1, 2, 3, 4]" 
+  # mix 1 
+  # time 0.3 
+  # fb 0.55 
+  # legato 4 
+  # amp 1
+  # orbit 11
+
+p "fx_chop_bus" silence
+

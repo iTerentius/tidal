@@ -215,6 +215,8 @@ let orb  = pI "orb"
     -- orb_pingpong 
     time = pF "time"
     fb   = pF "fb"
+    oid = pI "oid"
+    omute = pF "omute"
 :}
 
 :set prompt "tidal=> "
