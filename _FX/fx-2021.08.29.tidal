@@ -74,6 +74,7 @@ p "buffer-shuffle"
 p "buffer-shuffle" silence
 
 p "fx_chop_bus" 
+  $ jux rev
   $ s "fx_chop_bus" 
   # orb "[0, 1, 2, 3, 4]" 
   # mix 1 
@@ -81,7 +82,7 @@ p "fx_chop_bus"
   # fb 0.55 
   # legato 4 
   # amp 1
-  # orbit 11
+  # orbit 7 
 
 p "fx_chop_bus" silence
 
